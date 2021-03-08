@@ -18,6 +18,12 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void handleNewClick();
+    void handleSaveClick();
+    void handleSaveToClick();
+    void handleExportClick();
+
 private:
     Ui::MainWindow *ui;
 };

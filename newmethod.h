@@ -16,6 +16,11 @@ public:
     explicit NewMethod(QWidget *parent = nullptr);
     ~NewMethod();
 
+private slots:
+    void handleNewParam();
+    void handleEditParam();
+    void handleRemoveParam();
+
 private:
     Ui::NewMethod *ui;
 };

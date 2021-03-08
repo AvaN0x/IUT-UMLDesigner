@@ -15,7 +15,13 @@ class NewClass : public QDialog
 public:
     explicit NewClass(QWidget *parent = nullptr);
     ~NewClass();
-
+private slots:
+    void handleNewAttrClick();
+    void handleEditAttrClick();
+    void handleDeleteAttrClick();
+    void handleNewMethClick();
+    void handleEditMethClick();
+    void handleDeleteMethClick();
 private:
     Ui::NewClass *ui;
 };
