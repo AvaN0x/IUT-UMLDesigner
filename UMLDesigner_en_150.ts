@@ -33,16 +33,21 @@
     </message>
     <message>
         <location filename="mainwindow.ui" line="40"/>
-        <source>Save</source>
+        <source>Open...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="47"/>
-        <source>Save as...</source>
+        <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="54"/>
+        <source>Save as...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="61"/>
         <source>Export...</source>
         <translation type="unfinished"></translation>
     </message>
