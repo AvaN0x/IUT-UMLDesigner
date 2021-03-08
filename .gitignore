@@ -53,3 +53,6 @@ compile_commands.json
 
 # Windows folder icon
 desktop.ini
+
+
+.vscode/

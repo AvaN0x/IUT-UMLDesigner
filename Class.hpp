@@ -4,61 +4,50 @@
 #include <cstdlib>
 #include <ostream>
 
-#include "Queue.hpp"
+#include "Base.hpp"
+#include "List.hpp"
+#include "Attribute.hpp"
 
 namespace iut_cpp
 {
-    /**
-     * @brief Queue Class.
-     */
-    class Class
+    class Class;
+
+    class ClassJavaWrapper : public Wrapper
     {
+        friend Class;
+
+    protected:
+        Class *_class;
+        virtual void print(std::ostream &stream) const override;
+
+        ClassJavaWrapper(Class *c);
+    };
+
+    /**
+     * @brief List Class.
+     */
+    class Class : public Base
+    {
+        friend ClassJavaWrapper;
+
     private:
+        ClassJavaWrapper _wrapper;
         std::string _name;
-        iut_cpp::Queue<std::string> _attributes; //? todo change to attribute class
-        bool _isPublic = false;
-        bool _isAbstract = false;
+        iut_cpp::List<iut_cpp::Attribute> _attributes; //? todo change to attribute class
+        bool _isPublic;
+        bool _isAbstract;
 
     public:
         /**
          * @brief  Constructor
          */
-        Class(std::string name, iut_cpp::Queue<std::string> attributes, bool isPublic, bool isAbstract);
+        Class(std::string name, iut_cpp::List<iut_cpp::Attribute> attributes, bool isPublic, bool isAbstract);
 
-        /**
-         * @brief  Write the class to the stream
-         * @param  stream: stream to write on
-         */
-        void print(std::ostream &stream) const;
+        virtual const Wrapper &toJava() const override
+        {
+            return _wrapper;
+        }
     };
-
-    Class::Class(std::string name, iut_cpp::Queue<std::string> attributes, bool isPublic, bool isAbstract) : _name(name),
-                                                                                                             _attributes(attributes),
-                                                                                                             _isPublic(isPublic),
-                                                                                                             _isAbstract(isAbstract)
-    {
-        //constructor
-    }
-
-    void Class::print(std::ostream &stream) const
-    {
-        stream << (_isPublic ? "public" : "private")
-               << " ";
-        if (_isAbstract)
-            stream << "abstract ";
-        stream << "class " << _name << " {" << std::endl;
-
-        stream << _attributes;
-
-        stream << std::endl;
-        stream << "}" << std::endl;
-    }
-
-    std::ostream &operator<<(std::ostream &stream, Class const &c)
-    {
-        c.print(stream);
-        return stream;
-    }
 
 } // namespace iut_cpp
 

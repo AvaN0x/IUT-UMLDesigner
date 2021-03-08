@@ -48,6 +48,7 @@ namespace iut_cpp
          * @param  stream: stream to write on
          */
         using List<Type>::print;
+
     };
 
     template <typename Type>

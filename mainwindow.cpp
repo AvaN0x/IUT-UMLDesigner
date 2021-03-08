@@ -5,6 +5,8 @@
 #include "exportclass.h"
 
 #include "Class.hpp"
+#include "Attribute.hpp"
+#include "List.hpp"
 
 #include <QFileDialog>
 
@@ -27,12 +29,14 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::handleNewClick() {
+void MainWindow::handleNewClick()
+{
     NewClass *dialog = new NewClass(this);
     dialog->exec();
 }
 
-void MainWindow::handleOpenClick() {
+void MainWindow::handleOpenClick()
+{
     QFileDialog *dialog = new QFileDialog(this);
     dialog->setFileMode(QFileDialog::ExistingFile);
     QStringList directoryName;
@@ -41,16 +45,20 @@ void MainWindow::handleOpenClick() {
     //TODO Unserialize
 }
 
-void MainWindow::handleSaveClick() {
-    if(savePath.length() > 0){
+void MainWindow::handleSaveClick()
+{
+    if (savePath.length() > 0)
+    {
         saveFile();
     }
-    else {
+    else
+    {
         this->handleSaveToClick();
     }
 }
 
-void MainWindow::handleSaveToClick() {
+void MainWindow::handleSaveToClick()
+{
     QFileDialog *dialog = new QFileDialog(this);
     dialog->setFileMode(QFileDialog::Directory);
     QStringList directoryName;
@@ -60,17 +68,20 @@ void MainWindow::handleSaveToClick() {
     saveFile();
 }
 
-void MainWindow::handleExportClick(){
+void MainWindow::handleExportClick()
+{
     ExportClass *dialog = new ExportClass(this);
     dialog->exec();
 }
 
-void MainWindow::saveFile() {
+void MainWindow::saveFile()
+{
     //TODO Serialize
 }
 
-void MainWindow::handleNewClass(const QString name, const QStringList attr, const bool isPublic, const bool isAbstr) {
-    iut_cpp::Queue<std::string> q;
+void MainWindow::handleNewClass(const QString name, const QStringList attr, const bool isPublic, const bool isAbstr)
+{
+    iut_cpp::List<iut_cpp::Attribute> q;
     //TODO attr to Queue
     iut_cpp::Class myClass(name.toUtf8().constData(), q, isPublic, isAbstr);
     //TODO Show in window

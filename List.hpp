@@ -28,6 +28,9 @@ namespace iut_cpp
             ValueType _item;
             Node<ValueType> *_previous;
             Node<ValueType> *_next;
+            Node()
+            {
+            }
         };
         typedef Node<Type> node_t;
 
@@ -146,7 +149,7 @@ namespace iut_cpp
         /**
          * @brief  Dereferencement
          */
-        Type &operator->() const;
+        Type *operator->() const;
 
         /**
          * @brief  Dereferencement
@@ -421,15 +424,15 @@ namespace iut_cpp
     }
 
     template <typename Type>
-    Type &Iterator<Type>::operator->() const
+    Type *Iterator<Type>::operator->() const
     {
-        return _ptr->_item;
+        return &_ptr->_item;
     }
 
     template <typename Type>
     Type &Iterator<Type>::operator*() const
     {
-        return operator->();
+        return *operator->();
     }
 
     template <typename Type>
