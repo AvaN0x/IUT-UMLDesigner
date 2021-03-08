@@ -4,6 +4,8 @@
 #include "newclass.h"
 #include "exportclass.h"
 
+#include "Class.hpp"
+
 #include <QFileDialog>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -65,4 +67,11 @@ void MainWindow::handleExportClick(){
 
 void MainWindow::saveFile() {
     //TODO Serialize
+}
+
+void MainWindow::handleNewClass(const QString name, const QStringList attr, const bool isPublic, const bool isAbstr) {
+    iut_cpp::Queue<std::string> q;
+    //TODO attr to Queue
+    iut_cpp::Class myClass(name.toUtf8().constData(), q, isPublic, isAbstr);
+    //TODO Show in window
 }

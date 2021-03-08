@@ -22,6 +22,9 @@ NewClass::NewClass(QWidget *parent) : QDialog(parent),
             this, SLOT(handleEditMethClick()));
     connect(ui->btn_deleteMeth, SIGNAL(clicked()),
             this, SLOT(handleDeleteMethClick()));
+
+    connect(ui->btnbx, SIGNAL(accepted()),
+            parent, SLOT(handleNewClass()));
 }
 
 NewClass::~NewClass()
