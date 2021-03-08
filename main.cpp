@@ -5,6 +5,7 @@
 #include <QApplication>
 
 #include "Queue.hpp"
+#include "Class.hpp"
 
 int main(int argc, char *argv[])
 {
@@ -12,14 +13,16 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
-    iut_cpp::Queue<int> tqueue;
-    tqueue.push(1);
-    tqueue.push(2);
-    tqueue.push(3);
-    tqueue.push(5);
-    tqueue.push(9);
-    tqueue.pop();
-    std::cout << tqueue << std::endl;
+    iut_cpp::Queue<std::string> qAttributes;
+    qAttributes.push("attribute_1");
+    qAttributes.push("attribute_2");
+    qAttributes.push("attribute_3");
+    qAttributes.push("attribute_5");
+    qAttributes.push("attribute_9");
+    // qAttributes.pop(); // FIXME segmentation fault
+
+    iut_cpp::Class c1("ClassName", qAttributes, true, true);
+    std::cout << c1 << std::endl;
 
     return a.exec();
 }
