@@ -23,7 +23,7 @@ NewMethod::~NewMethod()
 
 void NewMethod::handleNewParam(){
     NewVar *dialog = new NewVar(this);
-    dialog->show();
+    dialog->exec();
 }
 
 void NewMethod::handleEditParam(){

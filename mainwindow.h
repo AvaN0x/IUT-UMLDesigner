@@ -20,11 +20,14 @@ public:
 
 private slots:
     void handleNewClick();
+    void handleOpenClick();
     void handleSaveClick();
     void handleSaveToClick();
     void handleExportClick();
 
 private:
+    void saveFile();
     Ui::MainWindow *ui;
+    QString savePath;
 };
 #endif // MAINWINDOW_H

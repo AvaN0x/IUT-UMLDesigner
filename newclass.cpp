@@ -32,7 +32,7 @@ NewClass::~NewClass()
 
 void NewClass::handleNewAttrClick(){
     NewVar *dialog = new NewVar(this);
-    dialog->show();
+    dialog->exec();
 }
 
 void NewClass::handleEditAttrClick(){

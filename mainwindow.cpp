@@ -4,6 +4,8 @@
 #include "newclass.h"
 #include "exportclass.h"
 
+#include <QFileDialog>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
 {
@@ -25,18 +27,42 @@ MainWindow::~MainWindow()
 
 void MainWindow::handleNewClick() {
     NewClass *dialog = new NewClass(this);
-    dialog->show();
+    dialog->exec();
+}
+
+void MainWindow::handleOpenClick() {
+    QFileDialog *dialog = new QFileDialog(this);
+    dialog->setFileMode(QFileDialog::ExistingFile);
+    QStringList directoryName;
+    if (dialog->exec())
+        directoryName = dialog->selectedFiles();
+    //TODO Unserialize
 }
 
 void MainWindow::handleSaveClick() {
-    //TODO
+    if(savePath.length() > 0){
+        saveFile();
+    }
+    else {
+        this->handleSaveToClick();
+    }
 }
 
 void MainWindow::handleSaveToClick() {
-    //TODO
+    QFileDialog *dialog = new QFileDialog(this);
+    dialog->setFileMode(QFileDialog::Directory);
+    QStringList directoryName;
+    if (dialog->exec())
+        directoryName = dialog->selectedFiles();
+    //TODO Get the real path
+    saveFile();
 }
 
 void MainWindow::handleExportClick(){
     ExportClass *dialog = new ExportClass(this);
-    dialog->show();
+    dialog->exec();
+}
+
+void MainWindow::saveFile() {
+    //TODO Serialize
 }
