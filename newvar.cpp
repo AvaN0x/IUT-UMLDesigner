@@ -1,14 +1,13 @@
 #include "newvar.h"
 #include "ui_newvar.h"
 
-newvar::newvar(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::newvar)
+NewVar::NewVar(QWidget *parent) : QDialog(parent),
+                                  ui(new Ui::NewVar)
 {
     ui->setupUi(this);
 }
 
-newvar::~newvar()
+NewVar::~NewVar()
 {
     delete ui;
 }

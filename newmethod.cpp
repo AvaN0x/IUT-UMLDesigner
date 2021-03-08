@@ -1,14 +1,13 @@
 #include "newmethod.h"
 #include "ui_newmethod.h"
 
-newmethod::newmethod(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::newmethod)
+NewMethod::NewMethod(QWidget *parent) : QDialog(parent),
+                                        ui(new Ui::NewMethod)
 {
     ui->setupUi(this);
 }
 
-newmethod::~newmethod()
+NewMethod::~NewMethod()
 {
     delete ui;
 }

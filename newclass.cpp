@@ -1,14 +1,13 @@
 #include "newclass.h"
 #include "ui_newclass.h"
 
-newclass::newclass(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::newclass)
+NewClass::NewClass(QWidget *parent) : QDialog(parent),
+                                      ui(new Ui::NewClass)
 {
     ui->setupUi(this);
 }
 
-newclass::~newclass()
+NewClass::~NewClass()
 {
     delete ui;
 }

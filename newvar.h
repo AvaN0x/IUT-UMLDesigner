@@ -3,20 +3,21 @@
 
 #include <QDialog>
 
-namespace Ui {
-class newvar;
+namespace Ui
+{
+    class NewVar;
 }
 
-class newvar : public QDialog
+class NewVar : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit newvar(QWidget *parent = nullptr);
-    ~newvar();
+    explicit NewVar(QWidget *parent = nullptr);
+    ~NewVar();
 
 private:
-    Ui::newvar *ui;
+    Ui::NewVar *ui;
 };
 
 #endif // NEWVAR_H

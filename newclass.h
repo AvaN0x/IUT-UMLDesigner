@@ -3,20 +3,21 @@
 
 #include <QDialog>
 
-namespace Ui {
-class newclass;
+namespace Ui
+{
+    class NewClass;
 }
 
-class newclass : public QDialog
+class NewClass : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit newclass(QWidget *parent = nullptr);
-    ~newclass();
+    explicit NewClass(QWidget *parent = nullptr);
+    ~NewClass();
 
 private:
-    Ui::newclass *ui;
+    Ui::NewClass *ui;
 };
 
 #endif // NEWCLASS_H

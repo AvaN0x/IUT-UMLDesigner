@@ -34,9 +34,9 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
-        export.cpp
-        export.h
-        export.ui
+        exportclass.cpp
+        exportclass.h
+        exportclass.ui
         newclass.cpp
         newclass.h
         newclass.ui

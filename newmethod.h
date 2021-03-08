@@ -3,20 +3,21 @@
 
 #include <QDialog>
 
-namespace Ui {
-class newmethod;
+namespace Ui
+{
+    class NewMethod;
 }
 
-class newmethod : public QDialog
+class NewMethod : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit newmethod(QWidget *parent = nullptr);
-    ~newmethod();
+    explicit NewMethod(QWidget *parent = nullptr);
+    ~NewMethod();
 
 private:
-    Ui::newmethod *ui;
+    Ui::NewMethod *ui;
 };
 
 #endif // NEWMETHOD_H
