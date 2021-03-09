@@ -2,11 +2,14 @@
 #include "ui_newmethod.h"
 
 #include "newvar.h"
+#include "types.h"
 
 NewMethod::NewMethod(QWidget *parent) : QDialog(parent),
                                         ui(new Ui::NewMethod)
 {
     ui->setupUi(this);
+
+    ui->cbx_return->addItems(*Types::getInstance()->getTypes());
 
     connect(ui->btn_newParam, SIGNAL(clicked()),
             this, SLOT(handleNewParam()));

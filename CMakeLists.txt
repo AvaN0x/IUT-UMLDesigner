@@ -55,6 +55,8 @@ set(PROJECT_SOURCES
         Stack.hpp
         Base.cpp
         Base.hpp
+        types.cpp
+        types.h
         ${TS_FILES}
 )
 

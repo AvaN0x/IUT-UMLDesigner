@@ -4,10 +4,14 @@
 #include "newvar.h"
 #include "newmethod.h"
 
+#include "types.h"
+
 NewClass::NewClass(QWidget *parent) : QDialog(parent),
                                       ui(new Ui::NewClass)
 {
     ui->setupUi(this);
+
+    ui->cbx_template->addItems(QStringList("") + *Types::getInstance()->getTypes());
 
     connect(ui->btn_newAttr, SIGNAL(clicked()),
             this, SLOT(handleNewAttrClick()));
