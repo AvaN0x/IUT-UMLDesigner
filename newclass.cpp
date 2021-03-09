@@ -4,7 +4,7 @@
 #include "newvar.h"
 #include "newmethod.h"
 
-#include "types.h"
+#include "models/types.h"
 
 NewClass::NewClass(QWidget *parent) : QDialog(parent),
                                       ui(new Ui::NewClass)
@@ -39,33 +39,39 @@ NewClass::~NewClass()
     delete ui;
 }
 
-
-void NewClass::handleNewAttrClick(){
+void NewClass::handleNewAttrClick()
+{
     NewVar *dialog = new NewVar(this);
     dialog->exec();
 }
 
-void NewClass::handleEditAttrClick(){
+void NewClass::handleEditAttrClick()
+{
     //TODO
 }
 
-void NewClass::handleDeleteAttrClick(){
+void NewClass::handleDeleteAttrClick()
+{
     //TODO
 }
 
-void NewClass::handleNewMethClick(){
+void NewClass::handleNewMethClick()
+{
     NewMethod *dialog = new NewMethod(this);
     dialog->show();
 }
 
-void NewClass::handleEditMethClick(){
+void NewClass::handleEditMethClick()
+{
     //TODO
 }
 
-void NewClass::handleDeleteMethClick(){
+void NewClass::handleDeleteMethClick()
+{
     //TODO
 }
 
-void NewClass::handleTemplateChanged(int index) {
+void NewClass::handleTemplateChanged(int index)
+{
     //TODO : Add TextBox to write a custom (always last index)
 }

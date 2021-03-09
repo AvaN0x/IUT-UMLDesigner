@@ -55,8 +55,8 @@ set(PROJECT_SOURCES
         models/Stack.hpp
         models/Base.cpp
         models/Base.hpp
-        types.cpp
-        types.h
+        models/types.cpp
+        models/types.h
         ${TS_FILES}
 )
 

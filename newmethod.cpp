@@ -2,7 +2,7 @@
 #include "ui_newmethod.h"
 
 #include "newvar.h"
-#include "types.h"
+#include "models/types.h"
 
 NewMethod::NewMethod(QWidget *parent) : QDialog(parent),
                                         ui(new Ui::NewMethod)
@@ -24,15 +24,18 @@ NewMethod::~NewMethod()
     delete ui;
 }
 
-void NewMethod::handleNewParam(){
+void NewMethod::handleNewParam()
+{
     NewVar *dialog = new NewVar(this);
     dialog->exec();
 }
 
-void NewMethod::handleEditParam(){
+void NewMethod::handleEditParam()
+{
     //TODO
 }
 
-void NewMethod::handleRemoveParam(){
+void NewMethod::handleRemoveParam()
+{
     //TODO
 }

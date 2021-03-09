@@ -1,7 +1,7 @@
 #include "newvar.h"
 #include "ui_newvar.h"
 
-#include "types.h"
+#include "models/types.h"
 
 NewVar::NewVar(QWidget *parent) : QDialog(parent),
                                   ui(new Ui::NewVar)
