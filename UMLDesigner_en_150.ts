@@ -18,6 +18,22 @@
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="exportclass.ui" line="65"/>
+        <location filename="exportclass.ui" line="86"/>
+        <source>CheckBox</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="exportclass.ui" line="72"/>
+        <source>Generate Getters ?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="exportclass.ui" line="79"/>
+        <source>Generate Setters ?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
