@@ -43,6 +43,8 @@ namespace iut_cpp
          */
         Class(std::string name, iut_cpp::List<iut_cpp::Attribute> attributes, bool isPublic, bool isAbstract);
 
+        void addAttribute(iut_cpp::Attribute attribute);
+
         virtual const Wrapper &toJava() const override
         {
             return _wrapper;
