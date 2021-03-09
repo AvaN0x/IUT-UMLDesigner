@@ -13,7 +13,7 @@ class NewVar : public QDialog
     Q_OBJECT
 
 public:
-    explicit NewVar(QWidget *parent = nullptr);
+    explicit NewVar(QWidget *parent = nullptr, bool isArg = false);
     ~NewVar();
 
 private:

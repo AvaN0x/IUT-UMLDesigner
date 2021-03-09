@@ -3,6 +3,7 @@
 
 #include "newvar.h"
 #include "models/types.h"
+#include "models/visibility.h"
 
 NewMethod::NewMethod(QWidget *parent) : QDialog(parent),
                                         ui(new Ui::NewMethod)
@@ -10,6 +11,7 @@ NewMethod::NewMethod(QWidget *parent) : QDialog(parent),
     ui->setupUi(this);
 
     ui->cbx_return->addItems(QStringList("void") + *Types::getInstance()->getTypes() + QStringList("Other :"));
+    ui->cbx_visibility->addItems(*Visibility::getInstance()->getVisibility());
 
     connect(ui->btn_newParam, SIGNAL(clicked()),
             this, SLOT(handleNewParam()));
@@ -26,7 +28,7 @@ NewMethod::~NewMethod()
 
 void NewMethod::handleNewParam()
 {
-    NewVar *dialog = new NewVar(this);
+    NewVar *dialog = new NewVar(this, true);
     dialog->exec();
 }
 

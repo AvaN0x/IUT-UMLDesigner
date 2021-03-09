@@ -57,6 +57,8 @@ set(PROJECT_SOURCES
         models/Base.hpp
         models/types.cpp
         models/types.h
+        models/visibility.cpp
+        models/visibility.h
         ${TS_FILES}
 )
 

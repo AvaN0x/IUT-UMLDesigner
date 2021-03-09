@@ -181,7 +181,8 @@
     </message>
     <message>
         <location filename="newvar.ui" line="55"/>
-        <source>Is Public ?</source>
+        <source>Is Static ?</source>
+        <oldsource>Is Public ?</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -197,6 +198,11 @@
     <message>
         <location filename="newvar.ui" line="79"/>
         <source>Default Value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="newvar.ui" line="89"/>
+        <source>Visibility</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
