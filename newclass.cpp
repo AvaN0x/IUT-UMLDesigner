@@ -11,7 +11,7 @@ NewClass::NewClass(QWidget *parent) : QDialog(parent),
 {
     ui->setupUi(this);
 
-    ui->cbx_template->addItems(QStringList("") + *Types::getInstance()->getTypes());
+    ui->cbx_template->addItems(QStringList("") + *Types::getInstance()->getTypes() + QStringList("Other :"));
 
     connect(ui->btn_newAttr, SIGNAL(clicked()),
             this, SLOT(handleNewAttrClick()));
@@ -26,6 +26,9 @@ NewClass::NewClass(QWidget *parent) : QDialog(parent),
             this, SLOT(handleEditMethClick()));
     connect(ui->btn_deleteMeth, SIGNAL(clicked()),
             this, SLOT(handleDeleteMethClick()));
+
+    connect(ui->cbx_template, SIGNAL(currentIndexChanged(index)),
+            this, SLOT(handleTemplateChanged(index)));
 
     connect(ui->btnbx, SIGNAL(accepted()),
             parent, SLOT(handleNewClass()));
@@ -61,4 +64,8 @@ void NewClass::handleEditMethClick(){
 
 void NewClass::handleDeleteMethClick(){
     //TODO
+}
+
+void NewClass::handleTemplateChanged(int index) {
+    //TODO : Add TextBox to write a custom (always last index)
 }

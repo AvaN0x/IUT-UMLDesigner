@@ -8,7 +8,7 @@ NewVar::NewVar(QWidget *parent) : QDialog(parent),
 {
     ui->setupUi(this);
 
-    ui->cbx_type->addItems(*Types::getInstance()->getTypes());
+    ui->cbx_type->addItems(*Types::getInstance()->getTypes() + QStringList("Other :"));
 }
 
 NewVar::~NewVar()

@@ -22,6 +22,7 @@ private slots:
     void handleNewMethClick();
     void handleEditMethClick();
     void handleDeleteMethClick();
+    void handleTemplateChanged(int);
 private:
     Ui::NewClass *ui;
 };

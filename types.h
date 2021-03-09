@@ -8,7 +8,6 @@ protected:
     static Types* types_;
     QStringList typesList_;
     Types();
-    Types(const QStringList list): typesList_(list){}
 public:
     Types(Types &other) = delete;
     void operator=(const Types &) = delete;

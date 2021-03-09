@@ -9,7 +9,7 @@ NewMethod::NewMethod(QWidget *parent) : QDialog(parent),
 {
     ui->setupUi(this);
 
-    ui->cbx_return->addItems(*Types::getInstance()->getTypes());
+    ui->cbx_return->addItems(QStringList("void") + *Types::getInstance()->getTypes() + QStringList("Other :"));
 
     connect(ui->btn_newParam, SIGNAL(clicked()),
             this, SLOT(handleNewParam()));
