@@ -46,15 +46,15 @@ set(PROJECT_SOURCES
         newvar.cpp
         newvar.h
         newvar.ui
-        Class.cpp
-        Attribute.cpp
-        Class.hpp
-        Attribute.hpp
-        List.hpp
-        Queue.hpp
-        Stack.hpp
-        Base.cpp
-        Base.hpp
+        models/Class.cpp
+        models/Attribute.cpp
+        models/Class.hpp
+        models/Attribute.hpp
+        models/List.hpp
+        models/Queue.hpp
+        models/Stack.hpp
+        models/Base.cpp
+        models/Base.hpp
         types.cpp
         types.h
         ${TS_FILES}

@@ -4,9 +4,9 @@
 #include "newclass.h"
 #include "exportclass.h"
 
-#include "Class.hpp"
-#include "Attribute.hpp"
-#include "List.hpp"
+#include "models/Class.hpp"
+#include "models/Attribute.hpp"
+#include "models/List.hpp"
 
 #include <QFileDialog>
 

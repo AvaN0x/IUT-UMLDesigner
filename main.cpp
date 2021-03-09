@@ -4,9 +4,9 @@
 
 #include <QApplication>
 
-#include "List.hpp"
-#include "Class.hpp"
-#include "Attribute.hpp"
+#include "models/List.hpp"
+#include "models/Class.hpp"
+#include "models/Attribute.hpp"
 
 int main(int argc, char *argv[])
 {
@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     // qAttributes.pop_back();
 
     iut_cpp::Class c1("TestClass", qAttributes, true, true);
-    //std::cout << c1.toJava() << std::endl;
+    std::cout << c1.toJava() << std::endl;
 
     return a.exec();
 }
