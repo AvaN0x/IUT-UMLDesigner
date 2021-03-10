@@ -7,11 +7,11 @@
 
 namespace iut_cpp
 {
-    Class::Class(std::string const &name, std::list<std::shared_ptr<iut_cpp::Attribute>> const &attributes, bool isPublic, bool isAbstract) : _wrapper(nullptr),
-                                                                                                                                              _name(name),
-                                                                                                                                              _attributes(attributes),
-                                                                                                                                              _isPublic(isPublic),
-                                                                                                                                              _isAbstract(isAbstract)
+    Class::Class(std::string const &name, iut_cpp::List<std::shared_ptr<iut_cpp::Attribute>> const &attributes, bool isPublic, bool isAbstract) : _wrapper(nullptr),
+                                                                                                                                                  _name(name),
+                                                                                                                                                  _attributes(attributes),
+                                                                                                                                                  _isPublic(isPublic),
+                                                                                                                                                  _isAbstract(isAbstract)
     {
         //constructor
         _wrapper = new ClassJavaWrapper(this);
@@ -24,7 +24,7 @@ namespace iut_cpp
 
     void Class::addAttribute(std::shared_ptr<iut_cpp::Attribute> attribute)
     {
-        _attributes.push_back(attribute);
+        _attributes.push_last(attribute);
     }
 
     ClassJavaWrapper::ClassJavaWrapper(Class *c) : _class(c)
