@@ -32,13 +32,13 @@ namespace iut_cpp
 
     private:
         AttributeJavaWrapper *_wrapper;
+
+    public:
         std::string _name;
         std::string _type;
         bool _isPublic;
         bool _isStatic; // TODO @OxyT0m add it to the UI
         std::string _defaultValue;
-
-    public:
         /**
          * @brief  Constructor
          */

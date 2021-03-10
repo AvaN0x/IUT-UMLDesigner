@@ -1,7 +1,11 @@
 #ifndef NEWCLASS_H
 #define NEWCLASS_H
 
+#include <vector>
+
 #include <QDialog>
+
+#include "models/Attribute.hpp"
 
 namespace Ui
 {
@@ -15,6 +19,8 @@ class NewClass : public QDialog
 public:
     explicit NewClass(QWidget *parent = nullptr);
     ~NewClass();
+public slots:
+    void handleNewVar(QString, QString, QString, bool, QString, int);
 private slots:
     void handleNewAttrClick();
     void handleEditAttrClick();
@@ -22,9 +28,10 @@ private slots:
     void handleNewMethClick();
     void handleEditMethClick();
     void handleDeleteMethClick();
-    void handleTemplateChanged(int);
+
 private:
     Ui::NewClass *ui;
+    std::vector<iut_cpp::Attribute> *attributes;
 };
 
 #endif // NEWCLASS_H

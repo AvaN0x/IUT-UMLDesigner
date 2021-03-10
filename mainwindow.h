@@ -17,14 +17,14 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
+public slots:
+    void handleNewClass(const QString, const QStringList, const bool, const bool);
 private slots:
     void handleNewClick();
     void handleOpenClick();
     void handleSaveClick();
     void handleSaveToClick();
     void handleExportClick();
-    void handleNewClass(const QString, const QStringList, const bool, const bool);
 private:
     void saveFile();
     Ui::MainWindow *ui;

@@ -71,61 +71,61 @@
 <context>
     <name>NewClass</name>
     <message>
-        <location filename="newclass.ui" line="16"/>
+        <location filename="newclass.ui" line="14"/>
         <source>New Class</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newclass.ui" line="47"/>
+        <location filename="newclass.ui" line="45"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newclass.ui" line="66"/>
+        <location filename="newclass.ui" line="64"/>
         <source>Is Public ?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newclass.ui" line="73"/>
-        <location filename="newclass.ui" line="87"/>
+        <location filename="newclass.ui" line="71"/>
+        <location filename="newclass.ui" line="85"/>
         <source>CheckBox</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newclass.ui" line="80"/>
+        <location filename="newclass.ui" line="78"/>
         <source>Is Abstract ?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newclass.ui" line="96"/>
+        <location filename="newclass.ui" line="94"/>
         <source>Attributes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newclass.ui" line="110"/>
-        <location filename="newclass.ui" line="155"/>
+        <location filename="newclass.ui" line="108"/>
+        <location filename="newclass.ui" line="153"/>
         <source>New...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newclass.ui" line="117"/>
-        <location filename="newclass.ui" line="162"/>
+        <location filename="newclass.ui" line="115"/>
+        <location filename="newclass.ui" line="160"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newclass.ui" line="130"/>
-        <location filename="newclass.ui" line="169"/>
+        <location filename="newclass.ui" line="128"/>
+        <location filename="newclass.ui" line="167"/>
         <source>Edit...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newclass.ui" line="141"/>
+        <location filename="newclass.ui" line="139"/>
         <source>Methods</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newclass.ui" line="180"/>
+        <location filename="newclass.ui" line="178"/>
         <source>Template</source>
         <translation type="unfinished"></translation>
     </message>
@@ -212,12 +212,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newvar.ui" line="79"/>
+        <location filename="newvar.ui" line="83"/>
         <source>Default Value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newvar.ui" line="89"/>
+        <location filename="newvar.ui" line="93"/>
         <source>Visibility</source>
         <translation type="unfinished"></translation>
     </message>

@@ -27,11 +27,7 @@ NewClass::NewClass(QWidget *parent) : QDialog(parent),
     connect(ui->btn_deleteMeth, SIGNAL(clicked()),
             this, SLOT(handleDeleteMethClick()));
 
-    connect(ui->cbx_template, SIGNAL(currentIndexChanged(index)),
-            this, SLOT(handleTemplateChanged(index)));
-
-    connect(ui->btnbx, SIGNAL(accepted()),
-            parent, SLOT(handleNewClass()));
+    attributes = new std::vector<iut_cpp::Attribute>();
 }
 
 NewClass::~NewClass()
@@ -47,12 +43,27 @@ void NewClass::handleNewAttrClick()
 
 void NewClass::handleEditAttrClick()
 {
-    //TODO
+    NewVar *dialog = new NewVar(&attributes->at(ui->lv_attr->currentRow()), ui->lv_attr->currentRow(), this, true);
+    dialog->exec();
 }
 
 void NewClass::handleDeleteAttrClick()
 {
     //TODO
+}
+
+void NewClass::handleNewVar(QString name, QString type, QString visibilty, bool isStatic, QString defaultValue, int editPos)
+{
+    //visibilty.toUtf8().constData()
+    iut_cpp::Attribute attr(name.toUtf8().constData(), type.toUtf8().constData(), false, isStatic, defaultValue.toUtf8().constData());
+    if(editPos == -1) {
+        attributes->push_back(attr);
+        ui->lv_attr->addItem(name);
+    }
+    else {
+        attributes->at(editPos) = attr;
+        ui->lv_attr->item(editPos)->setText(name);
+    }
 }
 
 void NewClass::handleNewMethClick()
@@ -71,7 +82,3 @@ void NewClass::handleDeleteMethClick()
     //TODO
 }
 
-void NewClass::handleTemplateChanged(int index)
-{
-    //TODO : Add TextBox to write a custom (always last index)
-}
