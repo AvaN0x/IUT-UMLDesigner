@@ -19,6 +19,8 @@ namespace iut_cpp
         virtual void print(std::ostream &stream) const override;
 
         AttributeJavaWrapper(Attribute *a);
+
+        virtual ~AttributeJavaWrapper() {}
     };
 
     /**
@@ -44,6 +46,8 @@ namespace iut_cpp
 
         virtual ~Attribute();
 
+        Attribute(Attribute const &a);
+
         /**
          * @brief  Constructor
          */
@@ -57,6 +61,8 @@ namespace iut_cpp
         {
             return *_wrapper;
         }
+
+        virtual Attribute &operator=(Attribute const &a);
     };
 
 } // namespace iut_cpp

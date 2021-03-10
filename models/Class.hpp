@@ -23,6 +23,8 @@ namespace iut_cpp
         virtual void print(std::ostream &stream) const override;
 
         ClassJavaWrapper(Class *c);
+
+        virtual ~ClassJavaWrapper() {}
     };
 
     /**
@@ -35,7 +37,7 @@ namespace iut_cpp
     private:
         ClassJavaWrapper *_wrapper;
         std::string _name;
-        iut_cpp::List<std::shared_ptr<iut_cpp::Attribute>> _attributes; //? todo change to attribute class
+        iut_cpp::List<iut_cpp::Attribute> _attributes; //? todo change to attribute class
         bool _isPublic;
         bool _isAbstract;
 
@@ -43,16 +45,20 @@ namespace iut_cpp
         /**
          * @brief  Constructor
          */
-        Class(std::string const &name, iut_cpp::List<std::shared_ptr<iut_cpp::Attribute>> const &attributes, bool isPublic, bool isAbstract);
+        Class(Class const &c);
+
+        Class(std::string const &name, iut_cpp::List<iut_cpp::Attribute> const &attributes, bool isPublic, bool isAbstract);
 
         virtual ~Class();
 
-        void addAttribute(std::shared_ptr<iut_cpp::Attribute> attribute);
+        void addAttribute(iut_cpp::Attribute attribute);
 
         virtual const Wrapper &toJava() const override
         {
             return *_wrapper;
         }
+
+        virtual Class &operator=(Class const &c);
     };
 
 } // namespace iut_cpp

@@ -40,9 +40,33 @@ namespace iut_cpp
         _wrapper = new AttributeJavaWrapper(this);
     }
 
+    Attribute::Attribute(Attribute const &a) : _wrapper(nullptr),
+                                               _name(a._name),
+                                               _type(a._type),
+                                               _isPublic(a._isPublic),
+                                               _isStatic(a._isStatic),
+                                               _defaultValue(a._defaultValue)
+    {
+        //constructor
+        _wrapper = new AttributeJavaWrapper(this);
+    }
+
     Attribute::~Attribute()
     {
         delete _wrapper;
+    }
+
+    Attribute &Attribute::operator=(Attribute const &a)
+    {
+        delete _wrapper;
+        _wrapper = new AttributeJavaWrapper(this);
+        _name = a._name;
+        _type = a._type;
+        _isPublic = a._isPublic;
+        _isStatic = a._isStatic;
+        _defaultValue = a._defaultValue;
+
+        return *this;
     }
 
     AttributeJavaWrapper::AttributeJavaWrapper(Attribute *a) : _attribute(a)

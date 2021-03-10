@@ -16,12 +16,12 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
-    iut_cpp::List<std::shared_ptr<iut_cpp::Attribute>> attributes;
-    attributes.push_last(std::make_shared<iut_cpp::Attribute>("x", "int", false, false, "1"));
-    attributes.push_last(std::make_shared<iut_cpp::Attribute>("y", "int", false, false, "2"));
-    attributes.push_last(std::make_shared<iut_cpp::Attribute>("z", "int", false, false));
-    attributes.push_last(std::make_shared<iut_cpp::Attribute>("a", "int", false, false, "4"));
-    attributes.push_last(std::make_shared<iut_cpp::Attribute>("b", "int", false, false));
+    iut_cpp::List<iut_cpp::Attribute> attributes;
+    attributes.push_last(iut_cpp::Attribute("x", "int", false, false, "1"));
+    attributes.push_last(iut_cpp::Attribute("y", "int", false, false, "2"));
+    attributes.push_last(iut_cpp::Attribute("z", "int", false, false));
+    attributes.push_last(iut_cpp::Attribute("a", "int", false, false, "4"));
+    attributes.push_last(iut_cpp::Attribute("b", "int", false, false));
     // attributes.pop_back();
 
     iut_cpp::Class c1("TestClass", attributes, true, true);
@@ -29,5 +29,4 @@ int main(int argc, char *argv[])
     std::cout << c1.toJava() << std::endl;
 
     return a.exec();
-    // return 0;
 }

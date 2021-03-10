@@ -7,11 +7,21 @@
 
 namespace iut_cpp
 {
-    Class::Class(std::string const &name, iut_cpp::List<std::shared_ptr<iut_cpp::Attribute>> const &attributes, bool isPublic, bool isAbstract) : _wrapper(nullptr),
-                                                                                                                                                  _name(name),
-                                                                                                                                                  _attributes(attributes),
-                                                                                                                                                  _isPublic(isPublic),
-                                                                                                                                                  _isAbstract(isAbstract)
+    Class::Class(Class const &c) : _wrapper(nullptr),
+                                   _name(c._name),
+                                   _attributes(c._attributes),
+                                   _isPublic(c._isPublic),
+                                   _isAbstract(c._isAbstract)
+    {
+        //constructor
+        _wrapper = new ClassJavaWrapper(this);
+    }
+
+    Class::Class(std::string const &name, iut_cpp::List<iut_cpp::Attribute> const &attributes, bool isPublic, bool isAbstract) : _wrapper(nullptr),
+                                                                                                                                 _name(name),
+                                                                                                                                 _attributes(attributes),
+                                                                                                                                 _isPublic(isPublic),
+                                                                                                                                 _isAbstract(isAbstract)
     {
         //constructor
         _wrapper = new ClassJavaWrapper(this);
@@ -22,7 +32,19 @@ namespace iut_cpp
         delete _wrapper;
     }
 
-    void Class::addAttribute(std::shared_ptr<iut_cpp::Attribute> attribute)
+    Class &Class::operator=(Class const &c)
+    {
+        delete _wrapper;
+        _wrapper = new ClassJavaWrapper(this);
+        _name = c._name;
+        _attributes = c._attributes;
+        _isPublic = c._isPublic;
+        _isAbstract = c._isAbstract;
+
+        return *this;
+    }
+
+    void Class::addAttribute(iut_cpp::Attribute attribute)
     {
         _attributes.push_last(attribute);
     }
@@ -41,7 +63,7 @@ namespace iut_cpp
 
         for (auto it = _class->_attributes.begin(); it != _class->_attributes.end(); ++it)
         {
-            stream << (*it)->toJava();
+            stream << it->toJava();
         }
 
         stream << std::endl;
