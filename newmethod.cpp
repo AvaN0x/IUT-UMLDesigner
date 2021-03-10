@@ -45,7 +45,10 @@ void NewMethod::handleEditParam()
 
 void NewMethod::handleRemoveParam()
 {
-    //TODO
+    int currRow = ui->lv_param->currentRow();
+    parameters->erase(parameters->begin() + currRow);
+    ui->lv_param->takeItem(currRow);
+    ui->lv_param->setCurrentRow(currRow);
 }
 
 void NewMethod::handleNewVar(QString name, QString type, QString visibilty, bool isStatic, QString defaultValue, int editPos)

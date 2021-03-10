@@ -49,7 +49,10 @@ void NewClass::handleEditAttrClick()
 
 void NewClass::handleDeleteAttrClick()
 {
-    //TODO
+    int currRow = ui->lv_attr->currentRow();
+    attributes->erase(attributes->begin() + currRow);
+    ui->lv_attr->takeItem(currRow);
+    ui->lv_attr->setCurrentRow(currRow);
 }
 
 void NewClass::handleNewVar(QString name, QString type, QString visibilty, bool isStatic, QString defaultValue, int editPos)
