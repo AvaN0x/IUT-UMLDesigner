@@ -7,35 +7,35 @@
 
 namespace iut_cpp
 {
-    Class::Class(Class const &c) : _wrapper(nullptr),
+    Class::Class(Class const &c) : _javaWrapper(nullptr),
                                    _name(c._name),
                                    _attributes(c._attributes),
                                    _isPublic(c._isPublic),
                                    _isAbstract(c._isAbstract)
     {
         //constructor
-        _wrapper = new ClassJavaWrapper(this);
+        _javaWrapper = new ClassJavaWrapper(this);
     }
 
-    Class::Class(std::string const &name, iut_cpp::List<iut_cpp::Attribute> const &attributes, bool isPublic, bool isAbstract) : _wrapper(nullptr),
+    Class::Class(std::string const &name, iut_cpp::List<iut_cpp::Attribute> const &attributes, bool isPublic, bool isAbstract) : _javaWrapper(nullptr),
                                                                                                                                  _name(name),
                                                                                                                                  _attributes(attributes),
                                                                                                                                  _isPublic(isPublic),
                                                                                                                                  _isAbstract(isAbstract)
     {
         //constructor
-        _wrapper = new ClassJavaWrapper(this);
+        _javaWrapper = new ClassJavaWrapper(this);
     }
 
     Class::~Class()
     {
-        delete _wrapper;
+        delete _javaWrapper;
     }
 
     Class &Class::operator=(Class const &c)
     {
-        delete _wrapper;
-        _wrapper = new ClassJavaWrapper(this);
+        delete _javaWrapper;
+        _javaWrapper = new ClassJavaWrapper(this);
         _name = c._name;
         _attributes = c._attributes;
         _isPublic = c._isPublic;

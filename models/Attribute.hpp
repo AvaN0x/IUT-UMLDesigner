@@ -31,7 +31,7 @@ namespace iut_cpp
         friend AttributeJavaWrapper;
 
     private:
-        AttributeJavaWrapper *_wrapper;
+        AttributeJavaWrapper *_javaWrapper;
 
     public:
         std::string _name;
@@ -59,7 +59,7 @@ namespace iut_cpp
 
         virtual const Wrapper &toJava() const override
         {
-            return *_wrapper;
+            return *_javaWrapper;
         }
 
         virtual Attribute &operator=(Attribute const &a);

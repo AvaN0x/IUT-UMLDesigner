@@ -35,7 +35,7 @@ namespace iut_cpp
         friend ClassJavaWrapper;
 
     private:
-        ClassJavaWrapper *_wrapper;
+        ClassJavaWrapper *_javaWrapper;
         std::string _name;
         iut_cpp::List<iut_cpp::Attribute> _attributes; //? todo change to attribute class
         bool _isPublic;
@@ -55,7 +55,7 @@ namespace iut_cpp
 
         virtual const Wrapper &toJava() const override
         {
-            return *_wrapper;
+            return *_javaWrapper;
         }
 
         virtual Class &operator=(Class const &c);

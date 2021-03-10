@@ -6,7 +6,7 @@
 
 namespace iut_cpp
 {
-    Attribute::Attribute() : _wrapper(nullptr),
+    Attribute::Attribute() : _javaWrapper(nullptr),
                              _name(""),
                              _type(""),
                              _isPublic(false),
@@ -14,10 +14,10 @@ namespace iut_cpp
                              _defaultValue("")
     {
         //constructor
-        _wrapper = new AttributeJavaWrapper(this);
+        _javaWrapper = new AttributeJavaWrapper(this);
     }
 
-    Attribute::Attribute(std::string const &name, std::string const &type, bool isPublic, bool isStatic) : _wrapper(nullptr),
+    Attribute::Attribute(std::string const &name, std::string const &type, bool isPublic, bool isStatic) : _javaWrapper(nullptr),
                                                                                                            _name(name),
                                                                                                            _type(type),
                                                                                                            _isPublic(isPublic),
@@ -25,11 +25,11 @@ namespace iut_cpp
                                                                                                            _defaultValue("")
     {
         //constructor
-        _wrapper = new AttributeJavaWrapper(this);
+        _javaWrapper = new AttributeJavaWrapper(this);
         // std::cout << _name << std::endl;
     }
 
-    Attribute::Attribute(std::string const &name, std::string const &type, bool isPublic, bool isStatic, std::string defaultValue) : _wrapper(nullptr),
+    Attribute::Attribute(std::string const &name, std::string const &type, bool isPublic, bool isStatic, std::string defaultValue) : _javaWrapper(nullptr),
                                                                                                                                      _name(name),
                                                                                                                                      _type(type),
                                                                                                                                      _isPublic(isPublic),
@@ -37,10 +37,10 @@ namespace iut_cpp
                                                                                                                                      _defaultValue(defaultValue)
     {
         //constructor
-        _wrapper = new AttributeJavaWrapper(this);
+        _javaWrapper = new AttributeJavaWrapper(this);
     }
 
-    Attribute::Attribute(Attribute const &a) : _wrapper(nullptr),
+    Attribute::Attribute(Attribute const &a) : _javaWrapper(nullptr),
                                                _name(a._name),
                                                _type(a._type),
                                                _isPublic(a._isPublic),
@@ -48,18 +48,18 @@ namespace iut_cpp
                                                _defaultValue(a._defaultValue)
     {
         //constructor
-        _wrapper = new AttributeJavaWrapper(this);
+        _javaWrapper = new AttributeJavaWrapper(this);
     }
 
     Attribute::~Attribute()
     {
-        delete _wrapper;
+        delete _javaWrapper;
     }
 
     Attribute &Attribute::operator=(Attribute const &a)
     {
-        delete _wrapper;
-        _wrapper = new AttributeJavaWrapper(this);
+        delete _javaWrapper;
+        _javaWrapper = new AttributeJavaWrapper(this);
         _name = a._name;
         _type = a._type;
         _isPublic = a._isPublic;
