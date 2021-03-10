@@ -29,7 +29,7 @@ namespace iut_cpp
         friend AttributeJavaWrapper;
 
     private:
-        AttributeJavaWrapper _wrapper;
+        AttributeJavaWrapper *_wrapper;
         std::string _name;
         std::string _type;
         bool _isPublic;
@@ -42,18 +42,20 @@ namespace iut_cpp
          */
         Attribute();
 
+        virtual ~Attribute();
+
         /**
          * @brief  Constructor
          */
-        Attribute(std::string name, std::string type, bool isPublic, bool isStatic);
+        Attribute(std::string const &name, std::string const &type, bool isPublic, bool isStatic);
         /**
          * @brief  Constructor
          */
-        Attribute(std::string name, std::string type, bool isPublic, bool isStatic, std::string defaultValue);
+        Attribute(std::string const &name, std::string const &type, bool isPublic, bool isStatic, std::string defaultValue);
 
         virtual const Wrapper &toJava() const override
         {
-            return _wrapper;
+            return *_wrapper;
         }
     };
 

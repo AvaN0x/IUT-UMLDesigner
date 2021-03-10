@@ -81,8 +81,8 @@ void MainWindow::saveFile()
 
 void MainWindow::handleNewClass(const QString name, const QStringList attr, const bool isPublic, const bool isAbstr)
 {
-    iut_cpp::List<iut_cpp::Attribute> q;
+    // iut_cpp::List<iut_cpp::Attribute> q;
     //TODO attr to Queue
-    iut_cpp::Class myClass(name.toUtf8().constData(), q, isPublic, isAbstr);
+    // iut_cpp::Class myClass(name.toUtf8().constData(), q, isPublic, isAbstr);
     //TODO Show in window
 }

@@ -7,18 +7,24 @@
 
 namespace iut_cpp
 {
-    Class::Class(std::string name, iut_cpp::List<iut_cpp::Attribute> attributes, bool isPublic, bool isAbstract) : _wrapper(this),
-                                                                                                                   _name(name),
-                                                                                                                   _attributes(attributes),
-                                                                                                                   _isPublic(isPublic),
-                                                                                                                   _isAbstract(isAbstract)
+    Class::Class(std::string const &name, std::list<std::shared_ptr<iut_cpp::Attribute>> const &attributes, bool isPublic, bool isAbstract) : _wrapper(nullptr),
+                                                                                                                                              _name(name),
+                                                                                                                                              _attributes(attributes),
+                                                                                                                                              _isPublic(isPublic),
+                                                                                                                                              _isAbstract(isAbstract)
     {
         //constructor
+        _wrapper = new ClassJavaWrapper(this);
     }
 
-    void Class::addAttribute(iut_cpp::Attribute attribute)
+    Class::~Class()
     {
-        _attributes.push_last(attribute);
+        delete _wrapper;
+    }
+
+    void Class::addAttribute(std::shared_ptr<iut_cpp::Attribute> attribute)
+    {
+        _attributes.push_back(attribute);
     }
 
     ClassJavaWrapper::ClassJavaWrapper(Class *c) : _class(c)
@@ -35,7 +41,7 @@ namespace iut_cpp
 
         for (auto it = _class->_attributes.begin(); it != _class->_attributes.end(); ++it)
         {
-            stream << it->toJava();
+            stream << (*it)->toJava();
         }
 
         stream << std::endl;

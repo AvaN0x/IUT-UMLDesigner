@@ -3,6 +3,8 @@
 
 #include <cstdlib>
 #include <ostream>
+#include <list>
+#include <memory>
 
 #include "Base.hpp"
 #include "List.hpp"
@@ -31,9 +33,9 @@ namespace iut_cpp
         friend ClassJavaWrapper;
 
     private:
-        ClassJavaWrapper _wrapper;
+        ClassJavaWrapper *_wrapper;
         std::string _name;
-        iut_cpp::List<iut_cpp::Attribute> _attributes; //? todo change to attribute class
+        std::list<std::shared_ptr<iut_cpp::Attribute>> _attributes; //? todo change to attribute class
         bool _isPublic;
         bool _isAbstract;
 
@@ -41,13 +43,15 @@ namespace iut_cpp
         /**
          * @brief  Constructor
          */
-        Class(std::string name, iut_cpp::List<iut_cpp::Attribute> attributes, bool isPublic, bool isAbstract);
+        Class(std::string const &name, std::list<std::shared_ptr<iut_cpp::Attribute>> const &attributes, bool isPublic, bool isAbstract);
 
-        void addAttribute(iut_cpp::Attribute attribute);
+        virtual ~Class();
+
+        void addAttribute(std::shared_ptr<iut_cpp::Attribute> attribute);
 
         virtual const Wrapper &toJava() const override
         {
-            return _wrapper;
+            return *_wrapper;
         }
     };
 
