@@ -58,12 +58,14 @@ void NewClass::handleDeleteAttrClick()
 void NewClass::handleNewVar(QString name, QString type, QString visibilty, bool isStatic, QString defaultValue, int editPos)
 {
     //visibilty.toUtf8().constData()
-    iut_cpp::Attribute attr(name.toUtf8().constData(), type.toUtf8().constData(), false, isStatic, defaultValue.toUtf8().constData());
-    if(editPos == -1) {
+    iut_cpp::Attribute attr(name.toUtf8().constData(), type.toUtf8().constData(), visibilty.toUtf8().constData(), isStatic, defaultValue.toUtf8().constData());
+    if (editPos == -1)
+    {
         attributes->push_back(attr);
         ui->lv_attr->addItem(name);
     }
-    else {
+    else
+    {
         attributes->at(editPos) = attr;
         ui->lv_attr->item(editPos)->setText(name);
     }
@@ -84,4 +86,3 @@ void NewClass::handleDeleteMethClick()
 {
     //TODO
 }
-

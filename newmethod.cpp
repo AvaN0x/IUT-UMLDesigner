@@ -54,12 +54,14 @@ void NewMethod::handleRemoveParam()
 void NewMethod::handleNewVar(QString name, QString type, QString visibilty, bool isStatic, QString defaultValue, int editPos)
 {
     //visibilty.toUtf8().constData()
-    iut_cpp::Attribute attr(name.toUtf8().constData(), type.toUtf8().constData(), false, isStatic, defaultValue.toUtf8().constData());
-    if(editPos == -1) {
+    iut_cpp::Attribute attr(name.toUtf8().constData(), type.toUtf8().constData(), visibilty.toUtf8().constData(), isStatic, defaultValue.toUtf8().constData());
+    if (editPos == -1)
+    {
         parameters->push_back(attr);
         ui->lv_param->addItem(name);
     }
-    else {
+    else
+    {
         parameters->at(editPos) = attr;
         ui->lv_param->item(editPos)->setText(name);
     }

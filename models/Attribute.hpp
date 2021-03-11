@@ -36,7 +36,7 @@ namespace iut_cpp
     public:
         std::string _name;
         std::string _type;
-        bool _isPublic;
+        std::string _status;
         bool _isStatic; // TODO @OxyT0m add it to the UI
         std::string _defaultValue;
         /**
@@ -51,11 +51,11 @@ namespace iut_cpp
         /**
          * @brief  Constructor
          */
-        Attribute(std::string const &name, std::string const &type, bool isPublic, bool isStatic);
+        Attribute(std::string const &name, std::string const &type, std::string status, bool isStatic);
         /**
          * @brief  Constructor
          */
-        Attribute(std::string const &name, std::string const &type, bool isPublic, bool isStatic, std::string defaultValue);
+        Attribute(std::string const &name, std::string const &type, std::string status, bool isStatic, std::string defaultValue);
 
         virtual const Wrapper &toJava() const override
         {

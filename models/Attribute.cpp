@@ -9,7 +9,7 @@ namespace iut_cpp
     Attribute::Attribute() : _javaWrapper(nullptr),
                              _name(""),
                              _type(""),
-                             _isPublic(false),
+                             _status(""),
                              _isStatic(false),
                              _defaultValue("")
     {
@@ -17,24 +17,24 @@ namespace iut_cpp
         _javaWrapper = new AttributeJavaWrapper(this);
     }
 
-    Attribute::Attribute(std::string const &name, std::string const &type, bool isPublic, bool isStatic) : _javaWrapper(nullptr),
-                                                                                                           _name(name),
-                                                                                                           _type(type),
-                                                                                                           _isPublic(isPublic),
-                                                                                                           _isStatic(isStatic),
-                                                                                                           _defaultValue("")
+    Attribute::Attribute(std::string const &name, std::string const &type, std::string status, bool isStatic) : _javaWrapper(nullptr),
+                                                                                                                _name(name),
+                                                                                                                _type(type),
+                                                                                                                _status(status),
+                                                                                                                _isStatic(isStatic),
+                                                                                                                _defaultValue("")
     {
         //constructor
         _javaWrapper = new AttributeJavaWrapper(this);
         // std::cout << _name << std::endl;
     }
 
-    Attribute::Attribute(std::string const &name, std::string const &type, bool isPublic, bool isStatic, std::string defaultValue) : _javaWrapper(nullptr),
-                                                                                                                                     _name(name),
-                                                                                                                                     _type(type),
-                                                                                                                                     _isPublic(isPublic),
-                                                                                                                                     _isStatic(isStatic),
-                                                                                                                                     _defaultValue(defaultValue)
+    Attribute::Attribute(std::string const &name, std::string const &type, std::string status, bool isStatic, std::string defaultValue) : _javaWrapper(nullptr),
+                                                                                                                                          _name(name),
+                                                                                                                                          _type(type),
+                                                                                                                                          _status(status),
+                                                                                                                                          _isStatic(isStatic),
+                                                                                                                                          _defaultValue(defaultValue)
     {
         //constructor
         _javaWrapper = new AttributeJavaWrapper(this);
@@ -43,7 +43,7 @@ namespace iut_cpp
     Attribute::Attribute(Attribute const &a) : _javaWrapper(nullptr),
                                                _name(a._name),
                                                _type(a._type),
-                                               _isPublic(a._isPublic),
+                                               _status(a._status),
                                                _isStatic(a._isStatic),
                                                _defaultValue(a._defaultValue)
     {
@@ -62,7 +62,7 @@ namespace iut_cpp
         _javaWrapper = new AttributeJavaWrapper(this);
         _name = a._name;
         _type = a._type;
-        _isPublic = a._isPublic;
+        _status = a._status;
         _isStatic = a._isStatic;
         _defaultValue = a._defaultValue;
 
@@ -75,8 +75,15 @@ namespace iut_cpp
 
     void AttributeJavaWrapper::print(std::ostream &stream) const
     {
-        stream << '\t' << (_attribute->_isPublic ? "public" : "private")
-               << ' ';
+        stream << '\t';
+
+        if (_attribute->_status.compare("internal") == 0)
+            stream << "protected";
+        else
+            stream << _attribute->_status;
+
+        stream << ' ';
+
         if (_attribute->_isStatic)
             stream << "static ";
 
