@@ -59,15 +59,18 @@ namespace iut_cpp
         else
             stream << _method->_status;
 
-        stream << ' ';
-
         if (_method->_isStatic)
-            stream << "static ";
-        stream << _method->_name << '(';
+            stream << " static ";
+        stream << _method->_name << " (";
 
+        bool isFirst(true);
         for (auto it = _method->_arguments.begin(); it != _method->_arguments.end(); ++it)
         {
-            stream << it->toJava() << ", ";
+            if (!isFirst)
+                stream << ", ";
+            else
+                isFirst = false;
+            stream << it->toJava();
         }
 
         stream << ") {" << std::endl;
