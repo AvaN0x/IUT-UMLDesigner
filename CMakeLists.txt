@@ -47,8 +47,10 @@ set(PROJECT_SOURCES
         newvar.h
         newvar.ui
         models/Class.cpp
-        models/Attribute.cpp
         models/Class.hpp
+        models/Argument.cpp
+        models/Argument.hpp
+        models/Attribute.cpp
         models/Attribute.hpp
         models/List.hpp
         models/Queue.hpp

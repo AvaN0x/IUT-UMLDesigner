@@ -26,7 +26,6 @@ namespace iut_cpp
     {
         //constructor
         _javaWrapper = new AttributeJavaWrapper(this);
-        // std::cout << _name << std::endl;
     }
 
     Attribute::Attribute(std::string const &name, std::string const &type, std::string status, bool isStatic, std::string defaultValue) : _javaWrapper(nullptr),
