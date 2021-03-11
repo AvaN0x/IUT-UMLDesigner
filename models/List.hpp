@@ -49,6 +49,8 @@ namespace iut_cpp
          */
         List();
 
+        List(List<Type> const &l);
+
         /**
          * @brief  Desctructor
          */
@@ -124,6 +126,8 @@ namespace iut_cpp
          * @param  stream: stream to write on
          */
         void print(std::ostream &stream) const;
+
+        virtual List<Type> &operator=(List<Type> const &l);
     };
 
     /**
@@ -332,6 +336,24 @@ namespace iut_cpp
     {
         auto it = rbegin();
         erase(it);
+    }
+
+    template <typename Type>
+    List<Type> &List<Type>::operator=(List<Type> const &l)
+    {
+        while (size())
+            pop_front();
+
+        for (auto it = l.begin(); it != l.end(); ++it)
+            push_last(*it);
+
+        return *this;
+    }
+
+    template <typename Type>
+    List<Type>::List(List<Type> const &l) : List()
+    {
+        operator=(l);
     }
 
     template <typename Type>

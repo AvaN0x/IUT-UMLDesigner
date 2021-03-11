@@ -7,6 +7,17 @@
 
 namespace iut_cpp
 {
+    Method::Method() : _javaWrapper(nullptr),
+                       _name(""),
+                       _returnType(""),
+                       _status(""),
+                       _isStatic(""),
+                       _arguments()
+    {
+        //constructor
+        _javaWrapper = new MethodJavaWrapper(this);
+    }
+
     Method::Method(Method const &m) : _javaWrapper(nullptr),
                                       _name(m._name),
                                       _returnType(m._returnType),
@@ -31,12 +42,14 @@ namespace iut_cpp
 
     Method::~Method()
     {
-        delete _javaWrapper;
+        if (!_javaWrapper)
+            delete _javaWrapper;
     }
 
     Method &Method::operator=(Method const &m)
     {
-        delete _javaWrapper;
+        if (!_javaWrapper)
+            delete _javaWrapper;
         _javaWrapper = new MethodJavaWrapper(this);
         _name = m._name;
         _returnType = m._returnType;
@@ -61,7 +74,7 @@ namespace iut_cpp
 
         if (_method->_isStatic)
             stream << " static ";
-        stream << _method->_name << " (";
+        stream << _method->_name << '(';
 
         bool isFirst(true);
         for (auto it = _method->_arguments.begin(); it != _method->_arguments.end(); ++it)

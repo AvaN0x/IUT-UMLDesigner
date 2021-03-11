@@ -52,12 +52,14 @@ namespace iut_cpp
 
     Attribute::~Attribute()
     {
-        delete _javaWrapper;
+        if (!_javaWrapper)
+            delete _javaWrapper;
     }
 
     Attribute &Attribute::operator=(Attribute const &a)
     {
-        delete _javaWrapper;
+        if (!_javaWrapper)
+            delete _javaWrapper;
         _javaWrapper = new AttributeJavaWrapper(this);
         _name = a._name;
         _type = a._type;

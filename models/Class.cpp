@@ -4,6 +4,7 @@
 #include "List.hpp"
 #include "Class.hpp"
 #include "Attribute.hpp"
+#include "Method.hpp"
 
 namespace iut_cpp
 {
@@ -11,17 +12,19 @@ namespace iut_cpp
                                    _name(c._name),
                                    _attributes(c._attributes),
                                    _isPublic(c._isPublic),
-                                   _isAbstract(c._isAbstract)
+                                   _isAbstract(c._isAbstract),
+                                   _methods(c._methods)
     {
         //constructor
         _javaWrapper = new ClassJavaWrapper(this);
     }
 
-    Class::Class(std::string const &name, iut_cpp::List<iut_cpp::Attribute> const &attributes, bool isPublic, bool isAbstract) : _javaWrapper(nullptr),
-                                                                                                                                 _name(name),
-                                                                                                                                 _attributes(attributes),
-                                                                                                                                 _isPublic(isPublic),
-                                                                                                                                 _isAbstract(isAbstract)
+    Class::Class(std::string const &name, iut_cpp::List<iut_cpp::Attribute> const &attributes, bool isPublic, bool isAbstract, iut_cpp::List<iut_cpp::Method> methods) : _javaWrapper(nullptr),
+                                                                                                                                                                         _name(name),
+                                                                                                                                                                         _attributes(attributes),
+                                                                                                                                                                         _isPublic(isPublic),
+                                                                                                                                                                         _isAbstract(isAbstract),
+                                                                                                                                                                         _methods(methods)
     {
         //constructor
         _javaWrapper = new ClassJavaWrapper(this);
@@ -40,6 +43,7 @@ namespace iut_cpp
         _attributes = c._attributes;
         _isPublic = c._isPublic;
         _isAbstract = c._isAbstract;
+        _methods = c._methods;
 
         return *this;
     }
@@ -62,13 +66,13 @@ namespace iut_cpp
         stream << "class " << _class->_name << " {" << std::endl;
 
         for (auto it = _class->_attributes.begin(); it != _class->_attributes.end(); ++it)
-        {
             stream << it->toJava();
-        }
 
         stream << std::endl;
 
-        stream << std::endl;
+        for (auto it = _class->_methods.begin(); it != _class->_methods.end(); ++it)
+            stream << it->toJava() << std::endl;
+
         stream << '}' << std::endl;
     }
 }

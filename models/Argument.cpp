@@ -6,66 +6,70 @@
 
 namespace iut_cpp
 {
-    Argument::Argument() : Attribute("",
-                                     "",
-                                     "",
-                                     false,
-                                     "")
+    Argument::Argument() : _javaWrapper(nullptr),
+                           _name(""),
+                           _type(""),
+                           _defaultValue("")
     {
         //constructor
         _javaWrapper = new ArgumentJavaWrapper(this);
     }
 
-    Argument::Argument(std::string const &name, std::string const &type) : Attribute(name,
-                                                                                     type,
-                                                                                     "",
-                                                                                     false,
-                                                                                     "")
+    Argument::Argument(std::string const &name, std::string const &type) : _javaWrapper(nullptr),
+                                                                           _name(name),
+                                                                           _type(type),
+                                                                           _defaultValue("")
     {
         //constructor
         _javaWrapper = new ArgumentJavaWrapper(this);
     }
 
-    Argument::Argument(std::string const &name, std::string const &type, std::string defaultValue) : Attribute(
-                                                                                                         name,
-                                                                                                         type,
-                                                                                                         "",
-                                                                                                         false,
-                                                                                                         defaultValue)
+    Argument::Argument(std::string const &name, std::string const &type, std::string defaultValue) : _javaWrapper(nullptr),
+                                                                                                     _name(name),
+                                                                                                     _type(type),
+                                                                                                     _defaultValue(defaultValue)
     {
         //constructor
         _javaWrapper = new ArgumentJavaWrapper(this);
     }
 
-    Argument::Argument(Argument const &a) : Attribute(
-                                                a._name,
-                                                a._type,
-                                                a._status,
-                                                a._isStatic,
-                                                a._defaultValue)
+    Argument::Argument(Argument const &a) : _javaWrapper(nullptr),
+                                            _name(a._name),
+                                            _type(a._type),
+                                            _defaultValue(a._defaultValue)
     {
         //constructor
         _javaWrapper = new ArgumentJavaWrapper(this);
+    }
+
+    Argument::~Argument()
+    {
+        if (!_javaWrapper)
+            delete _javaWrapper;
     }
 
     Argument &Argument::operator=(Argument const &a)
     {
-        Attribute::operator=(a);
+        if (!_javaWrapper)
+            delete _javaWrapper;
         _javaWrapper = new ArgumentJavaWrapper(this);
+        _name = a._name;
+        _type = a._type;
+        _defaultValue = a._defaultValue;
 
         return *this;
     }
 
-    ArgumentJavaWrapper::ArgumentJavaWrapper(Argument *a) : AttributeJavaWrapper(a)
+    ArgumentJavaWrapper::ArgumentJavaWrapper(Argument *a) : _argument(a)
     {
     }
 
     void ArgumentJavaWrapper::print(std::ostream &stream) const
     {
-        stream << _attribute->_type << ' ' << _attribute->_name;
+        stream << _argument->_type << ' ' << _argument->_name;
 
-        if (!_attribute->_defaultValue.empty())
-            stream << " = " << _attribute->_defaultValue;
+        if (!_argument->_defaultValue.empty())
+            stream << " = " << _argument->_defaultValue;
     }
 
 }

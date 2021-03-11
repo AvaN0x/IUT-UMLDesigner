@@ -37,7 +37,7 @@ namespace iut_cpp
         std::string _name;
         std::string _type;
         std::string _status;
-        bool _isStatic; // TODO @OxyT0m add it to the UI
+        bool _isStatic;
         std::string _defaultValue;
         /**
          * @brief  Constructor

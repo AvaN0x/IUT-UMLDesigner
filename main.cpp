@@ -24,21 +24,23 @@ int main(int argc, char *argv[])
     attributes.push_last(iut_cpp::Attribute("z", "int", "internal", false));
     attributes.push_last(iut_cpp::Attribute("a", "int", "private", false, "4"));
     attributes.push_last(iut_cpp::Attribute("b", "int", "private", false));
-    // attributes.pop_back();
 
-    iut_cpp::Class c1("TestClass", attributes, true, true);
+    iut_cpp::List<iut_cpp::Argument> arguments1;
+    arguments1.push_last(iut_cpp::Argument("x", "int"));
+    arguments1.push_last(iut_cpp::Argument("y", "int"));
+
+    iut_cpp::List<iut_cpp::Argument> arguments2;
+    arguments2.push_last(iut_cpp::Argument("x", "int", "0"));
+    arguments2.push_last(iut_cpp::Argument("y", "int", "0"));
+    arguments2.push_last(iut_cpp::Argument("z", "int", "0"));
+
+    iut_cpp::List<iut_cpp::Method> methods;
+    methods.push_last(iut_cpp::Method("somme", "int", "public", true, arguments1));
+    methods.push_last(iut_cpp::Method("hypothenuse", "int", "public", true, arguments2));
+
+    iut_cpp::Class c1("TestClass", attributes, true, true, methods);
 
     std::cout << c1.toJava() << std::endl;
-
-    std::cout << iut_cpp::Argument("arg", "int").toJava() << std::endl;
-    std::cout << iut_cpp::Argument("arg", "int", "4").toJava() << std::endl;
-
-    iut_cpp::List<iut_cpp::Argument> arguments;
-    arguments.push_last(iut_cpp::Argument("arg", "int"));
-    arguments.push_last(iut_cpp::Argument("arg", "int", "4"));
-    arguments.push_last(iut_cpp::Argument("arg", "int"));
-
-    std::cout << (iut_cpp::Method("somme", "int", "public", true, arguments)).toJava() << std::endl;
 
     return a.exec();
 }

@@ -8,6 +8,7 @@
 #include "Base.hpp"
 #include "List.hpp"
 #include "Attribute.hpp"
+#include "Method.hpp"
 
 namespace iut_cpp
 {
@@ -39,6 +40,7 @@ namespace iut_cpp
         iut_cpp::List<iut_cpp::Attribute> _attributes;
         bool _isPublic;
         bool _isAbstract;
+        iut_cpp::List<iut_cpp::Method> _methods;
 
     public:
         /**
@@ -46,7 +48,7 @@ namespace iut_cpp
          */
         Class(Class const &c);
 
-        Class(std::string const &name, iut_cpp::List<iut_cpp::Attribute> const &attributes, bool isPublic, bool isAbstract);
+        Class(std::string const &name, iut_cpp::List<iut_cpp::Attribute> const &attributes, bool isPublic, bool isAbstract, iut_cpp::List<iut_cpp::Method> methods);
 
         virtual ~Class();
 

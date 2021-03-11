@@ -3,27 +3,27 @@
 
 #include <cstdlib>
 #include <ostream>
-
-#include "Attribute.hpp"
-
+#include "Base.hpp"
 namespace iut_cpp
 {
     class Argument;
 
-    class ArgumentJavaWrapper : public AttributeJavaWrapper
+    class ArgumentJavaWrapper : public Wrapper
     {
         friend Argument;
 
     public:
+        Argument *_argument;
         virtual void print(std::ostream &stream) const override;
 
         ArgumentJavaWrapper(Argument *a);
+        virtual ~ArgumentJavaWrapper() {}
     };
 
     /**
-     * @brief Attribute.
+     * @brief Argument.
      */
-    class Argument : public Attribute
+    class Argument : public Base
     {
         friend ArgumentJavaWrapper;
 
@@ -31,11 +31,19 @@ namespace iut_cpp
         ArgumentJavaWrapper *_javaWrapper;
 
     public:
+        std::string _name;
+        std::string _type;
+        std::string _defaultValue;
         /**
          * @brief  Constructor
          */
         Argument();
 
+        virtual ~Argument();
+
+        /**
+         * @brief  Constructor
+         */
         Argument(Argument const &a);
 
         /**
@@ -49,7 +57,6 @@ namespace iut_cpp
 
         virtual const Wrapper &toJava() const override
         {
-            // needed in this case, because it would call Attribute print instead
             return *_javaWrapper;
         }
 
