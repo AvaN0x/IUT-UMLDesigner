@@ -48,6 +48,8 @@ set(PROJECT_SOURCES
         newvar.ui
         models/Class.cpp
         models/Class.hpp
+        models/Method.cpp
+        models/Method.hpp
         models/Argument.cpp
         models/Argument.hpp
         models/Attribute.cpp

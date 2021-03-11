@@ -9,6 +9,7 @@
 #include "models/List.hpp"
 #include "models/Class.hpp"
 #include "models/Attribute.hpp"
+#include "models/Method.hpp"
 #include "models/Argument.hpp"
 
 int main(int argc, char *argv[])
@@ -28,8 +29,16 @@ int main(int argc, char *argv[])
     iut_cpp::Class c1("TestClass", attributes, true, true);
 
     std::cout << c1.toJava() << std::endl;
+
     std::cout << iut_cpp::Argument("arg", "int").toJava() << std::endl;
     std::cout << iut_cpp::Argument("arg", "int", "4").toJava() << std::endl;
+
+    iut_cpp::List<iut_cpp::Argument> arguments;
+    arguments.push_last(iut_cpp::Argument("arg", "int"));
+    arguments.push_last(iut_cpp::Argument("arg", "int", "4"));
+    arguments.push_last(iut_cpp::Argument("arg", "int"));
+
+    std::cout << (iut_cpp::Method("somme", "int", "public", true, arguments)).toJava() << std::endl;
 
     return a.exec();
 }

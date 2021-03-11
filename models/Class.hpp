@@ -3,7 +3,6 @@
 
 #include <cstdlib>
 #include <ostream>
-#include <list>
 #include <memory>
 
 #include "Base.hpp"
@@ -37,7 +36,7 @@ namespace iut_cpp
     private:
         ClassJavaWrapper *_javaWrapper;
         std::string _name;
-        iut_cpp::List<iut_cpp::Attribute> _attributes; //? todo change to attribute class
+        iut_cpp::List<iut_cpp::Attribute> _attributes;
         bool _isPublic;
         bool _isAbstract;
 
