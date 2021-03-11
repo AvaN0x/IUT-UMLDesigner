@@ -50,7 +50,7 @@ namespace iut_cpp
 
     Argument &Argument::operator=(Argument const &a)
     {
-        ((Attribute)a).operator=(a);
+        Attribute::operator=(a);
         _javaWrapper = new ArgumentJavaWrapper(this);
 
         return *this;
