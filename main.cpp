@@ -1,22 +1,49 @@
 #include <iostream>
 #include <list>
 #include <memory>
+#include <fstream>
 
-#include "mainwindow.h"
+// #include "mainwindow.h"
 
-#include <QApplication>
+// #include <QApplication>
 
+#include "models/Base.hpp"
 #include "models/List.hpp"
 #include "models/Class.hpp"
 #include "models/Attribute.hpp"
 #include "models/Method.hpp"
 #include "models/Argument.hpp"
 
+/**
+ * @brief  Write a content into a file at a path
+ * @param  path: must contain extension at the end of file
+ * @param  wrapper: content to write
+ * @return bool, success or error
+ */
+bool writeInFile(std::string const &path, iut_cpp::Wrapper const &wrapper)
+{
+    std::ofstream file;
+
+    //TODO generate file name with extension
+    file.open(path);
+    if (!file)
+    {
+        std::cerr << "Error: could not open file at path : " << path << std::endl;
+        return false;
+    }
+
+    file << wrapper;
+    std::cout << "Class created at path : " << path << std::endl;
+    file.close();
+
+    return true;
+}
+
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+    // QApplication a(argc, argv);
+    // MainWindow w;
+    // w.show();
 
     iut_cpp::List<iut_cpp::Attribute> attributes;
     attributes.push_last(iut_cpp::Attribute("x", "int", "public", false, "1"));
@@ -40,7 +67,8 @@ int main(int argc, char *argv[])
 
     iut_cpp::Class c1("TestClass", attributes, true, true, methods);
 
-    std::cout << c1.toJava() << std::endl;
+    writeInFile("Test.java", c1.toJava());
 
-    return a.exec();
+    // return a.exec();
+    return 0;
 }
