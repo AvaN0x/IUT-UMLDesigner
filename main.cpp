@@ -47,24 +47,24 @@ int main(int argc, char *argv[])
     w.show();
 
     iut_cpp::List<iut_cpp::Attribute> attributes;
-    attributes.push_last(iut_cpp::Attribute("x", "int", "public", false, "1"));
-    attributes.push_last(iut_cpp::Attribute("y", "int", "public", false, "2"));
-    attributes.push_last(iut_cpp::Attribute("z", "int", "internal", false));
-    attributes.push_last(iut_cpp::Attribute("a", "int", "private", false, "4"));
-    attributes.push_last(iut_cpp::Attribute("b", "int", "private", false));
+    attributes.push_last(iut_cpp::Attribute("x", "integer", "public", false, "1"));
+    attributes.push_last(iut_cpp::Attribute("y", "integer", "public", false, "2"));
+    attributes.push_last(iut_cpp::Attribute("z", "integer", "internal", false));
+    attributes.push_last(iut_cpp::Attribute("a", "character", "private", false, "4"));
+    attributes.push_last(iut_cpp::Attribute("b", "float", "private", false));
 
     iut_cpp::List<iut_cpp::Argument> arguments1;
-    arguments1.push_last(iut_cpp::Argument("x", "int"));
-    arguments1.push_last(iut_cpp::Argument("y", "int"));
+    arguments1.push_last(iut_cpp::Argument("x", "integer"));
+    arguments1.push_last(iut_cpp::Argument("y", "integer"));
 
     iut_cpp::List<iut_cpp::Argument> arguments2;
-    arguments2.push_last(iut_cpp::Argument("x", "int", "0"));
-    arguments2.push_last(iut_cpp::Argument("y", "int", "0"));
-    arguments2.push_last(iut_cpp::Argument("z", "int", "0"));
+    arguments2.push_last(iut_cpp::Argument("x", "integer"));
+    arguments2.push_last(iut_cpp::Argument("y", "integer"));
+    arguments2.push_last(iut_cpp::Argument("z", "integer"));
 
     iut_cpp::List<iut_cpp::Method> methods;
-    methods.push_last(iut_cpp::Method("somme", "int", "public", false, arguments1));
-    methods.push_last(iut_cpp::Method("hypothenuse", "int", "public", true, arguments2));
+    methods.push_last(iut_cpp::Method("somme", "integer", "public", false, arguments1));
+    methods.push_last(iut_cpp::Method("hypothenuse", "double", "public", true, arguments2));
 
     iut_cpp::Class c1("TestClass", attributes, true, true, methods);
 

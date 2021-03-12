@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "Attribute.hpp"
+#include "types.h"
 
 namespace iut_cpp
 {
@@ -90,7 +91,7 @@ namespace iut_cpp
 
         // std::cout << _attribute->_name.size();
 
-        stream << _attribute->_type << ' ' << _attribute->_name;
+        stream << Types::getInJava(_attribute->_type) << ' ' << _attribute->_name;
 
         if (!_attribute->_defaultValue.empty())
             stream << " = " << _attribute->_defaultValue;

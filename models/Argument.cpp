@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "Argument.hpp"
+#include "types.h"
 
 namespace iut_cpp
 {
@@ -66,7 +67,7 @@ namespace iut_cpp
 
     void ArgumentJavaWrapper::print(std::ostream &stream) const
     {
-        stream << _argument->_type << ' ' << _argument->_name;
+        stream << Types::getInJava(_argument->_type) << ' ' << _argument->_name;
 
         if (!_argument->_defaultValue.empty())
             stream << " = " << _argument->_defaultValue;

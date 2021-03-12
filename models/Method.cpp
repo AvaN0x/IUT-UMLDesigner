@@ -4,6 +4,7 @@
 #include "List.hpp"
 #include "Method.hpp"
 #include "Argument.hpp"
+#include "types.h"
 
 namespace iut_cpp
 {
@@ -77,7 +78,7 @@ namespace iut_cpp
         if (_method->_isStatic)
             stream << "static ";
 
-        stream << _method->_returnType << ' ' << _method->_name << '(';
+        stream << Types::getInJava(_method->_returnType) << ' ' << _method->_name << '(';
 
         bool isFirst(true);
         for (auto it = _method->_arguments.begin(); it != _method->_arguments.end(); ++it)

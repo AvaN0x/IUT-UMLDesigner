@@ -3,16 +3,20 @@
 
 #include <QStringList>
 
-class Types {
+class Types
+{
 protected:
-    static Types* types_;
+    static Types *types_;
     QStringList typesList_;
     Types();
+
 public:
     Types(Types &other) = delete;
     void operator=(const Types &) = delete;
-    static Types* getInstance();
+    static Types *getInstance();
     QStringList *getTypes();
+
+    static std::string getInJava(std::string const &type);
 };
 
 #endif // TYPES_H
