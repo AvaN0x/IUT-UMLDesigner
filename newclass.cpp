@@ -86,13 +86,13 @@ void NewClass::handleNewVar(QString name, QString type, QString visibilty, bool 
 void NewClass::handleNewMethClick()
 {
     NewMethod *dialog = new NewMethod(this);
-    dialog->show();
+    dialog->exec();
 }
 
 void NewClass::handleEditMethClick()
 {
     NewMethod *dialog = new NewMethod(&methods->at(ui->lv_meth->currentRow()), ui->lv_meth->currentRow(), this);
-    dialog->show();
+    dialog->exec();
 }
 
 void NewClass::handleDeleteMethClick()
@@ -120,4 +120,5 @@ void NewClass::handleNewMeth(QString name, QString ret, QString visibilty, bool 
 
 void NewClass::handleAccept() {
     emit emitNewClass(ui->le_name->text(), *attributes, ui->cb_public->isChecked(), ui->cb_abstract->isChecked(), *methods, editPos);
+    close(); // Why I need to close the window here and not at other handle ? Dunno
 }
