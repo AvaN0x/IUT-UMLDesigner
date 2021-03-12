@@ -72,8 +72,10 @@ namespace iut_cpp
         else
             stream << _method->_status;
 
+        stream << ' ';
+
         if (_method->_isStatic)
-            stream << " static ";
+            stream << "static ";
         stream << _method->_name << '(';
 
         bool isFirst(true);
