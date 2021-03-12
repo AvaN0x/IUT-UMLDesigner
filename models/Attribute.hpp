@@ -39,6 +39,7 @@ namespace iut_cpp
         std::string _status;
         bool _isStatic;
         std::string _defaultValue;
+        bool _isConst;
         /**
          * @brief  Constructor
          */
@@ -55,7 +56,7 @@ namespace iut_cpp
         /**
          * @brief  Constructor
          */
-        Attribute(std::string const &name, std::string const &type, std::string status, bool isStatic, std::string defaultValue);
+        Attribute(std::string const &name, std::string const &type, std::string status, bool isStatic, bool isConst, std::string defaultValue);
 
         virtual const Wrapper &toJava() const override
         {

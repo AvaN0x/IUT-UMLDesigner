@@ -47,10 +47,10 @@ int main(int argc, char *argv[])
     w.show();
 
     iut_cpp::List<iut_cpp::Attribute> attributes;
-    attributes.push_last(iut_cpp::Attribute("x", "integer", "public", false, "1"));
-    attributes.push_last(iut_cpp::Attribute("y", "integer", "public", false, "2"));
+    attributes.push_last(iut_cpp::Attribute("x", "integer", "public", false, false, "1"));
+    attributes.push_last(iut_cpp::Attribute("y", "integer", "public", false, false, "2"));
     attributes.push_last(iut_cpp::Attribute("z", "integer", "internal", false));
-    attributes.push_last(iut_cpp::Attribute("a", "character", "private", false, "4"));
+    attributes.push_last(iut_cpp::Attribute("a", "character", "private", false, true, "4"));
     attributes.push_last(iut_cpp::Attribute("b", "float", "private", false));
 
     iut_cpp::List<iut_cpp::Argument> arguments1;

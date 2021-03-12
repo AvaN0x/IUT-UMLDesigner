@@ -13,6 +13,7 @@ namespace iut_cpp
                              _type(""),
                              _status(""),
                              _isStatic(false),
+                             _isConst(false),
                              _defaultValue("")
     {
         //constructor
@@ -24,18 +25,20 @@ namespace iut_cpp
                                                                                                                 _type(type),
                                                                                                                 _status(status),
                                                                                                                 _isStatic(isStatic),
+                                                                                                                _isConst(false),
                                                                                                                 _defaultValue("")
     {
         //constructor
         _javaWrapper = new AttributeJavaWrapper(this);
     }
 
-    Attribute::Attribute(std::string const &name, std::string const &type, std::string status, bool isStatic, std::string defaultValue) : _javaWrapper(nullptr),
-                                                                                                                                          _name(name),
-                                                                                                                                          _type(type),
-                                                                                                                                          _status(status),
-                                                                                                                                          _isStatic(isStatic),
-                                                                                                                                          _defaultValue(defaultValue)
+    Attribute::Attribute(std::string const &name, std::string const &type, std::string status, bool isStatic, bool isConst, std::string defaultValue) : _javaWrapper(nullptr),
+                                                                                                                                                        _name(name),
+                                                                                                                                                        _type(type),
+                                                                                                                                                        _status(status),
+                                                                                                                                                        _isStatic(isStatic),
+                                                                                                                                                        _isConst(isConst),
+                                                                                                                                                        _defaultValue(defaultValue)
     {
         //constructor
         _javaWrapper = new AttributeJavaWrapper(this);
@@ -46,6 +49,7 @@ namespace iut_cpp
                                                _type(a._type),
                                                _status(a._status),
                                                _isStatic(a._isStatic),
+                                               _isConst(a._isConst),
                                                _defaultValue(a._defaultValue)
     {
         //constructor
@@ -67,6 +71,7 @@ namespace iut_cpp
         _type = a._type;
         _status = a._status;
         _isStatic = a._isStatic;
+        _isConst = a._isConst;
         _defaultValue = a._defaultValue;
 
         return *this;
@@ -82,6 +87,8 @@ namespace iut_cpp
 
         if (_attribute->_isStatic)
             stream << "static ";
+        if (_attribute->_isConst)
+            stream << "final ";
 
         stream << Types::getInJava(_attribute->_type) << ' ' << _attribute->_name;
 
