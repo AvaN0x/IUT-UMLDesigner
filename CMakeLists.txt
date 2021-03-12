@@ -54,6 +54,8 @@ set(PROJECT_SOURCES
         models/Argument.hpp
         models/Attribute.cpp
         models/Attribute.hpp
+        models/Utils.cpp
+        models/Utils.hpp
         models/List.hpp
         models/Queue.hpp
         models/Stack.hpp
