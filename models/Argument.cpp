@@ -68,9 +68,6 @@ namespace iut_cpp
     void ArgumentJavaWrapper::print(std::ostream &stream) const
     {
         stream << Types::getInJava(_argument->_type) << ' ' << _argument->_name;
-
-        if (!_argument->_defaultValue.empty())
-            stream << " = " << _argument->_defaultValue;
     }
 
 }
