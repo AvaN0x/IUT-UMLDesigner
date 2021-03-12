@@ -10,25 +10,28 @@ namespace iut_cpp
     Argument::Argument() : _javaWrapper(nullptr),
                            _name(""),
                            _type(""),
+                           _isConst(false),
                            _defaultValue("")
     {
         //constructor
         _javaWrapper = new ArgumentJavaWrapper(this);
     }
 
-    Argument::Argument(std::string const &name, std::string const &type) : _javaWrapper(nullptr),
-                                                                           _name(name),
-                                                                           _type(type),
-                                                                           _defaultValue("")
+    Argument::Argument(std::string const &name, std::string const &type, bool isConst) : _javaWrapper(nullptr),
+                                                                                         _name(name),
+                                                                                         _type(type),
+                                                                                         _isConst(isConst),
+                                                                                         _defaultValue("")
     {
         //constructor
         _javaWrapper = new ArgumentJavaWrapper(this);
     }
 
-    Argument::Argument(std::string const &name, std::string const &type, std::string defaultValue) : _javaWrapper(nullptr),
-                                                                                                     _name(name),
-                                                                                                     _type(type),
-                                                                                                     _defaultValue(defaultValue)
+    Argument::Argument(std::string const &name, std::string const &type, bool isConst, std::string defaultValue) : _javaWrapper(nullptr),
+                                                                                                                   _name(name),
+                                                                                                                   _type(type),
+                                                                                                                   _isConst(isConst),
+                                                                                                                   _defaultValue(defaultValue)
     {
         //constructor
         _javaWrapper = new ArgumentJavaWrapper(this);
@@ -37,6 +40,7 @@ namespace iut_cpp
     Argument::Argument(Argument const &a) : _javaWrapper(nullptr),
                                             _name(a._name),
                                             _type(a._type),
+                                            _isConst(a._isConst),
                                             _defaultValue(a._defaultValue)
     {
         //constructor
@@ -56,6 +60,7 @@ namespace iut_cpp
         _javaWrapper = new ArgumentJavaWrapper(this);
         _name = a._name;
         _type = a._type;
+        _isConst = a._isConst;
         _defaultValue = a._defaultValue;
 
         return *this;
@@ -67,6 +72,9 @@ namespace iut_cpp
 
     void ArgumentJavaWrapper::print(std::ostream &stream) const
     {
+        if (_argument->_isConst)
+            stream << "final ";
+
         stream << Types::getInJava(_argument->_type) << ' ' << _argument->_name;
     }
 

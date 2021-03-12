@@ -54,17 +54,17 @@ int main(int argc, char *argv[])
     attributes.push_last(iut_cpp::Attribute("b", "float", "private", false));
 
     iut_cpp::List<iut_cpp::Argument> arguments1;
-    arguments1.push_last(iut_cpp::Argument("x", "integer"));
-    arguments1.push_last(iut_cpp::Argument("y", "integer"));
+    arguments1.push_last(iut_cpp::Argument("x", "integer", false));
+    arguments1.push_last(iut_cpp::Argument("y", "integer", false));
 
     iut_cpp::List<iut_cpp::Argument> arguments2;
-    arguments2.push_last(iut_cpp::Argument("x", "integer"));
-    arguments2.push_last(iut_cpp::Argument("y", "integer"));
-    arguments2.push_last(iut_cpp::Argument("z", "integer"));
+    arguments2.push_last(iut_cpp::Argument("x", "integer", true));
+    arguments2.push_last(iut_cpp::Argument("y", "integer", true));
+    arguments2.push_last(iut_cpp::Argument("z", "integer", true));
 
     iut_cpp::List<iut_cpp::Method> methods;
     methods.push_last(iut_cpp::Method("somme", "integer", "public", false, arguments1));
-    methods.push_last(iut_cpp::Method("hypothenuse", "double", "public", true, arguments2));
+    methods.push_last(iut_cpp::Method("hypothenuse", "double", "private", true, arguments2));
 
     iut_cpp::Class c1("TestClass", attributes, true, true, methods);
 

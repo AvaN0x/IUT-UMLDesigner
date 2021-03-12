@@ -33,6 +33,7 @@ namespace iut_cpp
     public:
         std::string _name;
         std::string _type;
+        bool _isConst;
         std::string _defaultValue;
         /**
          * @brief  Constructor
@@ -49,11 +50,11 @@ namespace iut_cpp
         /**
          * @brief  Constructor
          */
-        Argument(std::string const &name, std::string const &type);
+        Argument(std::string const &name, std::string const &type, bool isConst);
         /**
          * @brief  Constructor
          */
-        Argument(std::string const &name, std::string const &type, std::string defaultValue);
+        Argument(std::string const &name, std::string const &type, bool isConst, std::string defaultValue);
 
         virtual const Wrapper &toJava() const override
         {
