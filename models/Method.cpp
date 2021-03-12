@@ -87,7 +87,7 @@ namespace iut_cpp
         }
 
         stream << ") {" << std::endl;
-        stream << "\t\t// TODO" << std::endl;
+        stream << "\t\t// TODO: auto generated function" << std::endl;
 
         stream << "\t}" << std::endl;
     }
