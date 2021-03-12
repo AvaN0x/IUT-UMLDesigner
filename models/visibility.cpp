@@ -22,3 +22,11 @@ QStringList *Visibility::getVisibility()
 {
     return &visibilityList_;
 }
+
+std::string Visibility::getInJava(std::string const &visibility)
+{
+    if (visibility == "internal")
+        return "protected";
+
+    return visibility;
+}

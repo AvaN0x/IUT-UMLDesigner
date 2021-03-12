@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "Attribute.hpp"
+#include "visibility.h"
 #include "types.h"
 
 namespace iut_cpp
@@ -77,19 +78,10 @@ namespace iut_cpp
 
     void AttributeJavaWrapper::print(std::ostream &stream) const
     {
-        stream << '\t';
-
-        if (_attribute->_status.compare("internal") == 0)
-            stream << "protected";
-        else
-            stream << _attribute->_status;
-
-        stream << ' ';
+        stream << '\t' << Visibility::getInJava(_attribute->_status) << ' ';
 
         if (_attribute->_isStatic)
             stream << "static ";
-
-        // std::cout << _attribute->_name.size();
 
         stream << Types::getInJava(_attribute->_type) << ' ' << _attribute->_name;
 

@@ -5,6 +5,7 @@
 #include "Method.hpp"
 #include "Argument.hpp"
 #include "types.h"
+#include "visibility.h"
 
 namespace iut_cpp
 {
@@ -67,13 +68,7 @@ namespace iut_cpp
 
     void MethodJavaWrapper::print(std::ostream &stream) const
     {
-        stream << '\t';
-        if (_method->_status.compare("internal") == 0)
-            stream << "protected";
-        else
-            stream << _method->_status;
-
-        stream << ' ';
+        stream << '\t' << Visibility::getInJava(_method->_status) << ' ';
 
         if (_method->_isStatic)
             stream << "static ";

@@ -6,14 +6,17 @@
 class Visibility
 {
 protected:
-    static Visibility* visibility_;
+    static Visibility *visibility_;
     QStringList visibilityList_;
     Visibility();
+
 public:
     Visibility(Visibility &other) = delete;
     void operator=(const Visibility &) = delete;
-    static Visibility* getInstance();
+    static Visibility *getInstance();
     QStringList *getVisibility();
+
+    static std::string getInJava(std::string const &visibility);
 };
 
 #endif // VISIBILITY_H
