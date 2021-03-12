@@ -28,10 +28,13 @@ NewClass::NewClass(QWidget *parent) : QDialog(parent),
             this, SLOT(handleDeleteMethClick()));
 
     attributes = new std::vector<iut_cpp::Attribute>();
+    methods = new std::vector<iut_cpp::Method>();
 }
 
 NewClass::~NewClass()
 {
+    delete attributes;
+    delete methods;
     delete ui;
 }
 
@@ -43,7 +46,7 @@ void NewClass::handleNewAttrClick()
 
 void NewClass::handleEditAttrClick()
 {
-    NewVar *dialog = new NewVar(&attributes->at(ui->lv_attr->currentRow()), ui->lv_attr->currentRow(), this, true);
+    NewVar *dialog = new NewVar(&attributes->at(ui->lv_attr->currentRow()), ui->lv_attr->currentRow(), this);
     dialog->exec();
 }
 
@@ -57,7 +60,6 @@ void NewClass::handleDeleteAttrClick()
 
 void NewClass::handleNewVar(QString name, QString type, QString visibilty, bool isStatic, QString defaultValue, int editPos)
 {
-    //visibilty.toUtf8().constData()
     iut_cpp::Attribute attr(name.toUtf8().constData(), type.toUtf8().constData(), visibilty.toUtf8().constData(), isStatic, defaultValue.toUtf8().constData());
     if (editPos == -1)
     {
@@ -79,10 +81,29 @@ void NewClass::handleNewMethClick()
 
 void NewClass::handleEditMethClick()
 {
-    //TODO
+    NewMethod *dialog = new NewMethod(&methods->at(ui->lv_meth->currentRow()), ui->lv_meth->currentRow(), this);
+    dialog->show();
 }
 
 void NewClass::handleDeleteMethClick()
 {
-    //TODO
+    int currRow = ui->lv_meth->currentRow();
+    methods->erase(methods->begin() + currRow);
+    ui->lv_meth->takeItem(currRow);
+    ui->lv_meth->setCurrentRow(currRow);
+}
+
+void NewClass::handleNewMeth(QString name, QString ret, QString visibilty, bool isStatic, std::vector<iut_cpp::Argument> arguments, int editPos) {
+    iut_cpp::List<iut_cpp::Argument> args;
+    foreach (iut_cpp::Argument arg, arguments) {
+        args.push_last(arg);
+    }
+    iut_cpp::Method meth(name.toUtf8().constData(), ret.toUtf8().constData(), visibilty.toUtf8().constData(), isStatic, args);
+    if (editPos == -1) {
+        methods->push_back(meth);
+        ui->lv_meth->addItem(name);
+    } else {
+        methods->at(editPos) = meth;
+        ui->lv_meth->item(editPos)->setText(name);
+    }
 }

@@ -144,7 +144,7 @@
     </message>
     <message>
         <location filename="newmethod.ui" line="52"/>
-        <source>Modifier</source>
+        <source>Visibility</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

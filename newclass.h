@@ -6,6 +6,7 @@
 #include <QDialog>
 
 #include "models/Attribute.hpp"
+#include "models/Method.hpp"
 
 namespace Ui
 {
@@ -21,6 +22,7 @@ public:
     ~NewClass();
 public slots:
     void handleNewVar(QString, QString, QString, bool, QString, int);
+    void handleNewMeth(QString, QString, QString, bool, std::vector<iut_cpp::Argument>, int);
 private slots:
     void handleNewAttrClick();
     void handleEditAttrClick();
@@ -32,6 +34,7 @@ private slots:
 private:
     Ui::NewClass *ui;
     std::vector<iut_cpp::Attribute> *attributes;
+    std::vector<iut_cpp::Method> *methods;
 };
 
 #endif // NEWCLASS_H

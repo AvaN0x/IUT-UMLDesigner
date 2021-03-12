@@ -35,13 +35,14 @@ namespace iut_cpp
 
     private:
         MethodJavaWrapper *_javaWrapper;
+
+    public:
         std::string _name;
         std::string _returnType;
         std::string _status;
         bool _isStatic;
         iut_cpp::List<iut_cpp::Argument> _arguments;
 
-    public:
         /**
          * @brief  Constructor
          */

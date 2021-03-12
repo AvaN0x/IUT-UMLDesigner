@@ -4,6 +4,7 @@
 #include <QDialog>
 
 #include "models/Attribute.hpp"
+#include "models/Argument.hpp"
 
 namespace Ui
 {
@@ -16,7 +17,8 @@ class NewVar : public QDialog
 
 public:
     explicit NewVar(QWidget *parent = nullptr, bool isArg = false);
-    explicit NewVar(iut_cpp::Attribute *attr, int pos, QWidget *parent = nullptr, bool isArg = false);
+    explicit NewVar(iut_cpp::Attribute *attr, int pos, QWidget *parent = nullptr);
+    explicit NewVar(iut_cpp::Argument *attr, int pos, QWidget *parent = nullptr);
     ~NewVar();
 signals:
     void emitNewVar(QString, QString, QString, bool, QString, int);

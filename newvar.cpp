@@ -22,12 +22,20 @@ NewVar::NewVar(QWidget *parent, bool isArg) : QDialog(parent),
             parent, SLOT(handleNewVar(QString, QString, QString, bool, QString, int)));
 }
 
-NewVar::NewVar(iut_cpp::Attribute *attr, int pos, QWidget *parent, bool isArg) : NewVar(parent, isArg)
+NewVar::NewVar(iut_cpp::Attribute *attr, int pos, QWidget *parent) : NewVar(parent, false)
 {
     ui->le_name->setText(QString::fromStdString(attr->_name));
     ui->cbx_type->setCurrentText(QString::fromStdString(attr->_type));
-    //ui->cbx_visibility->setCurrentText(QString::fromStdString(attr->_visibility));
+    ui->cbx_visibility->setCurrentText(QString::fromStdString(attr->_status));
     ui->cb_static->setChecked(attr->_isStatic);
+    ui->le_value->setText(QString::fromStdString(attr->_defaultValue));
+    editPos = pos;
+}
+
+NewVar::NewVar(iut_cpp::Argument *attr, int pos, QWidget *parent) : NewVar(parent, true)
+{
+    ui->le_name->setText(QString::fromStdString(attr->_name));
+    ui->cbx_type->setCurrentText(QString::fromStdString(attr->_type));
     ui->le_value->setText(QString::fromStdString(attr->_defaultValue));
     editPos = pos;
 }

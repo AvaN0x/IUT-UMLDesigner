@@ -36,13 +36,14 @@ namespace iut_cpp
 
     private:
         ClassJavaWrapper *_javaWrapper;
+
+    public:
         std::string _name;
         iut_cpp::List<iut_cpp::Attribute> _attributes;
         bool _isPublic;
         bool _isAbstract;
         iut_cpp::List<iut_cpp::Method> _methods;
 
-    public:
         /**
          * @brief  Constructor
          */
