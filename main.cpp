@@ -3,9 +3,9 @@
 #include <memory>
 #include <fstream>
 
-// #include "mainwindow.h"
+#include "mainwindow.h"
 
-// #include <QApplication>
+#include <QApplication>
 
 #include "models/Base.hpp"
 #include "models/List.hpp"
@@ -41,9 +41,9 @@ bool writeInFile(std::string const &path, iut_cpp::Wrapper const &wrapper)
 
 int main(int argc, char *argv[])
 {
-    // QApplication a(argc, argv);
-    // MainWindow w;
-    // w.show();
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
 
     iut_cpp::List<iut_cpp::Attribute> attributes;
     attributes.push_last(iut_cpp::Attribute("x", "int", "public", false, "1"));
@@ -69,6 +69,5 @@ int main(int argc, char *argv[])
 
     writeInFile("Test.java", c1.toJava());
 
-    // return a.exec();
-    return 0;
+    return a.exec();
 }
