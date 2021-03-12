@@ -167,7 +167,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newmethod.ui" line="118"/>
+        <location filename="newmethod.ui" line="120"/>
+        <source>Is Const ?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="newmethod.ui" line="127"/>
         <source>Is Static ?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -185,13 +190,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newvar.ui" line="57"/>
+        <location filename="newvar.ui" line="64"/>
         <source>Is Static ?</source>
         <oldsource>Is Public ?</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newvar.ui" line="64"/>
+        <location filename="newvar.ui" line="57"/>
         <source>Is Const ?</source>
         <translation type="unfinished"></translation>
     </message>
