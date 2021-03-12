@@ -86,46 +86,40 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newclass.ui" line="71"/>
-        <location filename="newclass.ui" line="85"/>
-        <source>CheckBox</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="newclass.ui" line="78"/>
+        <location filename="newclass.ui" line="74"/>
         <source>Is Abstract ?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newclass.ui" line="94"/>
+        <location filename="newclass.ui" line="83"/>
         <source>Attributes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newclass.ui" line="108"/>
-        <location filename="newclass.ui" line="153"/>
+        <location filename="newclass.ui" line="97"/>
+        <location filename="newclass.ui" line="142"/>
         <source>New...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newclass.ui" line="115"/>
-        <location filename="newclass.ui" line="160"/>
+        <location filename="newclass.ui" line="104"/>
+        <location filename="newclass.ui" line="149"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newclass.ui" line="128"/>
-        <location filename="newclass.ui" line="167"/>
+        <location filename="newclass.ui" line="117"/>
+        <location filename="newclass.ui" line="156"/>
         <source>Edit...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newclass.ui" line="139"/>
+        <location filename="newclass.ui" line="128"/>
         <source>Methods</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newclass.ui" line="178"/>
+        <location filename="newclass.ui" line="167"/>
         <source>Template</source>
         <translation type="unfinished"></translation>
     </message>
@@ -158,28 +152,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newmethod.ui" line="86"/>
+        <location filename="newmethod.ui" line="90"/>
         <source>New...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newmethod.ui" line="93"/>
+        <location filename="newmethod.ui" line="97"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newmethod.ui" line="100"/>
+        <location filename="newmethod.ui" line="104"/>
         <source>Edit...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newmethod.ui" line="114"/>
+        <location filename="newmethod.ui" line="118"/>
         <source>Is Static ?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="newmethod.ui" line="121"/>
-        <source>CheckBox</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -196,28 +185,28 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newvar.ui" line="55"/>
+        <location filename="newvar.ui" line="57"/>
         <source>Is Static ?</source>
         <oldsource>Is Public ?</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newvar.ui" line="62"/>
-        <source>CheckBox</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="newvar.ui" line="69"/>
-        <source>Type</source>
+        <location filename="newvar.ui" line="64"/>
+        <source>Is Const ?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="newvar.ui" line="83"/>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="newvar.ui" line="97"/>
         <source>Default Value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newvar.ui" line="93"/>
+        <location filename="newvar.ui" line="73"/>
         <source>Visibility</source>
         <translation type="unfinished"></translation>
     </message>

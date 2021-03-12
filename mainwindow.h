@@ -1,7 +1,12 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <vector>
+
 #include <QMainWindow>
+
+#include "models/Attribute.hpp"
+#include "models/Method.hpp"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -18,7 +23,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 public slots:
-    void handleNewClass(const QString, const QStringList, const bool, const bool);
+    void handleNewClass(QString, std::vector<iut_cpp::Attribute>, bool, bool, std::vector<iut_cpp::Method>, int);
 private slots:
     void handleNewClick();
     void handleOpenClick();

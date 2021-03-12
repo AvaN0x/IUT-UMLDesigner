@@ -12,6 +12,7 @@ NewVar::NewVar(QWidget *parent, bool isArg) : QDialog(parent),
     ui->cbx_type->addItems(*Types::getInstance()->getTypes());
 
     ui->cbx_visibility->setDisabled(isArg);
+    ui->cb_static->setDisabled(isArg);
     if(!isArg) {
         ui->cbx_visibility->addItems(*Visibility::getInstance()->getVisibility());
     }

@@ -79,10 +79,26 @@ void MainWindow::saveFile()
     //TODO Serialize
 }
 
-void MainWindow::handleNewClass(const QString name, const QStringList attr, const bool isPublic, const bool isAbstr)
+// TODO: REMOVE
+#include <iostream>
+
+void MainWindow::handleNewClass(QString name, std::vector<iut_cpp::Attribute> attrs, bool isPublic, bool isAbstr, std::vector<iut_cpp::Method> meths, int editPos)
 {
-    // iut_cpp::List<iut_cpp::Attribute> q;
-    //TODO attr to Queue
-    // iut_cpp::Class myClass(name.toUtf8().constData(), q, isPublic, isAbstr);
-    //TODO Show in window
+    iut_cpp::List<iut_cpp::Attribute> attributes;
+    foreach (iut_cpp::Attribute arg, attrs) {
+        attributes.push_last(arg);
+    }
+    iut_cpp::List<iut_cpp::Method> methods;
+    foreach (iut_cpp::Method arg, meths) {
+        methods.push_last(arg);
+    }
+    iut_cpp::Class cla(name.toUtf8().constData(), attributes, isPublic, isAbstr, methods);
+    if (editPos == -1) {
+
+    } else {
+
+    }
+
+    //TODO: REMOVE
+    std::cout << cla.toJava() << std::endl;
 }

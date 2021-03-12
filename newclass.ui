@@ -59,30 +59,19 @@
     <item row="1" column="1">
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
-       <widget class="QLabel" name="label_7">
+       <widget class="QCheckBox" name="cb_public">
         <property name="text">
          <string>Is Public ?</string>
         </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QCheckBox" name="cb_public">
-        <property name="text">
-         <string>CheckBox</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_6">
-        <property name="text">
-         <string>Is Abstract ?</string>
+        <property name="checked">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QCheckBox" name="cb_abstract">
         <property name="text">
-         <string>CheckBox</string>
+         <string>Is Abstract ?</string>
         </property>
        </widget>
       </item>

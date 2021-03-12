@@ -68,7 +68,11 @@
      </widget>
     </item>
     <item row="3" column="1">
-     <widget class="QComboBox" name="cbx_return"/>
+     <widget class="QComboBox" name="cbx_return">
+      <property name="editable">
+       <bool>true</bool>
+      </property>
+     </widget>
     </item>
     <item row="0" column="1">
      <widget class="QLineEdit" name="le_name"/>
@@ -108,19 +112,23 @@
     <item row="1" column="1">
      <widget class="QComboBox" name="cbx_visibility"/>
     </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="label_5">
-      <property name="text">
-       <string>Is Static ?</string>
-      </property>
-     </widget>
-    </item>
     <item row="2" column="1">
-     <widget class="QCheckBox" name="cb_static">
-      <property name="text">
-       <string>CheckBox</string>
-      </property>
-     </widget>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QCheckBox" name="cb_const">
+        <property name="text">
+         <string>Is Const ?</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="cb_static">
+        <property name="text">
+         <string>Is Static ?</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>

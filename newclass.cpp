@@ -27,8 +27,18 @@ NewClass::NewClass(QWidget *parent) : QDialog(parent),
     connect(ui->btn_deleteMeth, SIGNAL(clicked()),
             this, SLOT(handleDeleteMethClick()));
 
+    connect(ui->btnbx, SIGNAL(accepted()),
+            this, SLOT(handleAccept()));
+    connect(this, SIGNAL(emitNewClass(QString, std::vector<iut_cpp::Attribute>, bool, bool, std::vector<iut_cpp::Method>, int)),
+            parent, SLOT(handleNewClass(QString, std::vector<iut_cpp::Attribute>, bool, bool, std::vector<iut_cpp::Method>, int)));
+
     attributes = new std::vector<iut_cpp::Attribute>();
     methods = new std::vector<iut_cpp::Method>();
+}
+
+NewClass::NewClass(iut_cpp::Class clas, int pos, QWidget *parent) : NewClass(parent)
+{
+    //TODO
 }
 
 NewClass::~NewClass()
@@ -106,4 +116,8 @@ void NewClass::handleNewMeth(QString name, QString ret, QString visibilty, bool 
         methods->at(editPos) = meth;
         ui->lv_meth->item(editPos)->setText(name);
     }
+}
+
+void NewClass::handleAccept() {
+    emit emitNewClass(ui->le_name->text(), *attributes, ui->cb_public->isChecked(), ui->cb_abstract->isChecked(), *methods, editPos);
 }
