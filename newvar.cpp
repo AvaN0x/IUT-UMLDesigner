@@ -3,9 +3,10 @@
 
 #include "models/types.h"
 #include "models/visibility.h"
+#include "models/Utils.hpp"
 
 NewVar::NewVar(QWidget *parent, bool isArg) : QDialog(parent),
-                                  ui(new Ui::NewVar)
+                                              ui(new Ui::NewVar)
 {
     ui->setupUi(this);
 
@@ -13,12 +14,13 @@ NewVar::NewVar(QWidget *parent, bool isArg) : QDialog(parent),
 
     ui->cbx_visibility->setDisabled(isArg);
     ui->cb_static->setDisabled(isArg);
-    if(!isArg) {
+    if (!isArg)
+    {
         ui->cbx_visibility->addItems(*Visibility::getInstance()->getVisibility());
     }
 
     connect(ui->buttonBox, SIGNAL(accepted()),
-                this, SLOT(handleAccept()));
+            this, SLOT(handleAccept()));
     connect(this, SIGNAL(emitNewVar(QString, QString, QString, bool, QString, int)),
             parent, SLOT(handleNewVar(QString, QString, QString, bool, QString, int)));
 }
@@ -46,6 +48,17 @@ NewVar::~NewVar()
     delete ui;
 }
 
-void NewVar::handleAccept() {
-    emit emitNewVar(ui->le_name->text(), ui->cbx_type->currentText(), ui->cbx_visibility->currentText(), ui->cb_static->isChecked(), ui->le_value->text(), editPos);
+void NewVar::handleAccept()
+{
+    std::string name = remSpaces(ui->le_name->text().toUtf8().constData());
+    std::string value = remSpaces(ui->le_value->text().toUtf8().constData());
+
+    // don't check value, because you can have an empty default value
+    if (!empty(name))
+        // TODO maybe prevent from closing ?
+        emit emitNewVar(QString::fromUtf8(name), ui->cbx_type->currentText(), ui->cbx_visibility->currentText(), ui->cb_static->isChecked(), QString::fromUtf8(value), editPos);
+    else
+    {
+        //TODO alert
+    }
 }

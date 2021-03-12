@@ -5,6 +5,7 @@
 #include "newmethod.h"
 
 #include "models/types.h"
+#include "models/Utils.hpp"
 
 NewClass::NewClass(QWidget *parent) : QDialog(parent),
                                       ui(new Ui::NewClass)
@@ -126,6 +127,15 @@ void NewClass::handleNewMeth(QString name, QString ret, QString visibilty, bool 
 
 void NewClass::handleAccept()
 {
-    emit emitNewClass(ui->le_name->text(), *attributes, ui->cb_public->isChecked(), ui->cb_abstract->isChecked(), *methods, editPos);
-    close(); // Why I need to close the window here and not at other handle ? Dunno
+    std::string name = remSpaces(ui->le_name->text().toUtf8().constData());
+
+    if (!empty(name))
+    {
+        emit emitNewClass(QString::fromUtf8(name), *attributes, ui->cb_public->isChecked(), ui->cb_abstract->isChecked(), *methods, editPos);
+        close(); // Why I need to close the window here and not at other handle ? Dunno
+    }
+    else
+    {
+        //TODO alert
+    }
 }

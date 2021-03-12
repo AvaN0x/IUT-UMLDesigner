@@ -4,6 +4,7 @@
 #include "newvar.h"
 #include "models/types.h"
 #include "models/visibility.h"
+#include "models/Utils.hpp"
 
 NewMethod::NewMethod(QWidget *parent) : QDialog(parent),
                                         ui(new Ui::NewMethod)
@@ -86,5 +87,13 @@ void NewMethod::handleNewVar(QString name, QString type, QString visibilty, bool
 
 void NewMethod::handleAccept()
 {
-    emit emitNewMeth(ui->le_name->text(), ui->cbx_return->currentText(), ui->cbx_visibility->currentText(), ui->cb_static->isChecked(), *parameters, editPos);
+    std::string name = remSpaces(ui->le_name->text().toUtf8().constData());
+
+    if (!empty(name))
+        // TODO maybe prevent from closing ?
+        emit emitNewMeth(QString::fromUtf8(name), ui->cbx_return->currentText(), ui->cbx_visibility->currentText(), ui->cb_static->isChecked(), *parameters, editPos);
+    else
+    {
+        //TODO alert
+    }
 }
