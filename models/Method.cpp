@@ -76,7 +76,8 @@ namespace iut_cpp
 
         if (_method->_isStatic)
             stream << "static ";
-        stream << _method->_name << '(';
+
+        stream << _method->_returnType << ' ' << _method->_name << '(';
 
         bool isFirst(true);
         for (auto it = _method->_arguments.begin(); it != _method->_arguments.end(); ++it)
