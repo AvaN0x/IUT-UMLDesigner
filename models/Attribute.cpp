@@ -103,9 +103,9 @@ namespace iut_cpp
         std::string string = "";
 
         if (_isStatic)
-            string += "S ";
+            string += 'S';
 
-        string += Visibility::getInUML(_status) + ' ' + (_isConst ? toUpper(_name) : _name) + ':' + _type;
+        string += Visibility::getInUML(_status) + ' ' + (_isConst ? toUpper(_name) : _name) + ": " + _type;
 
         if (!_defaultValue.empty())
             string += " = " + _defaultValue;

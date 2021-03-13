@@ -38,7 +38,7 @@ NewMethod::NewMethod(iut_cpp::Method *meth, int pos, QWidget *parent) : NewMetho
     for (auto ptr = meth->_arguments.begin(); ptr != meth->_arguments.end(); ++ptr)
     {
         parameters->push_back(*ptr);
-        ui->lv_param->addItem(QString::fromStdString(ptr->_name));
+        ui->lv_param->addItem(QString::fromStdString(ptr->toString()));
     }
     editPos = pos;
 }
@@ -76,7 +76,7 @@ void NewMethod::handleNewVar(QString name, QString type, QString visibilty, bool
     if (editPos == -1)
     {
         parameters->push_back(arg);
-        ui->lv_param->addItem(name);
+        ui->lv_param->addItem(QString::fromUtf8(arg.toString()));
     }
     else
     {

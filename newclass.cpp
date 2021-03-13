@@ -76,7 +76,7 @@ void NewClass::handleNewVar(QString name, QString type, QString visibilty, bool 
     if (editPos == -1)
     {
         attributes->push_back(attr);
-        ui->lv_attr->addItem(name);
+        ui->lv_attr->addItem(QString::fromUtf8(attr.toString()));
     }
     else
     {
@@ -116,7 +116,7 @@ void NewClass::handleNewMeth(QString name, QString ret, QString visibilty, bool 
     if (editPos == -1)
     {
         methods->push_back(meth);
-        ui->lv_meth->addItem(name);
+        ui->lv_meth->addItem(QString::fromUtf8(meth.toString()));
     }
     else
     {
