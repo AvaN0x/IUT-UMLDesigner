@@ -90,4 +90,28 @@ namespace iut_cpp
 
         stream << "\t}" << std::endl;
     }
+
+    std::string Method::toString()
+    {
+        std::string string = "";
+
+        if (_isStatic)
+            string += "S ";
+
+        string += Visibility::getInUML(_status) + ' ' + _name + '(';
+
+        bool isFirst(true);
+        for (auto it = _arguments.begin(); it != _arguments.end(); ++it)
+        {
+            if (!isFirst)
+                string += ", ";
+            else
+                isFirst = false;
+            string += it->toString();
+        }
+
+        string += "):" + _returnType;
+
+        return string;
+    }
 }

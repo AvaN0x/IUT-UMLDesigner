@@ -17,6 +17,7 @@ public:
     QStringList *getVisibility();
 
     static std::string getInJava(std::string const &visibility);
+    static std::string getInUML(std::string const &visibility);
 };
 
 #endif // VISIBILITY_H

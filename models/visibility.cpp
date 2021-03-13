@@ -30,3 +30,15 @@ std::string Visibility::getInJava(std::string const &visibility)
 
     return visibility;
 }
+
+std::string Visibility::getInUML(std::string const &visibility)
+{
+    if (visibility == "public")
+        return "+";
+    else if (visibility == "private")
+        return "-";
+    else if (visibility == "internal")
+        return "#";
+
+    return visibility;
+}

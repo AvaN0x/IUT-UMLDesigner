@@ -2,6 +2,7 @@
 #include <ostream>
 #include <iostream>
 
+#include "Utils.hpp"
 #include "Attribute.hpp"
 #include "visibility.h"
 #include "types.h"
@@ -95,6 +96,21 @@ namespace iut_cpp
         if (!_attribute->_defaultValue.empty())
             stream << " = " << _attribute->_defaultValue;
         stream << ';' << std::endl;
+    }
+
+    std::string Attribute::toString()
+    {
+        std::string string = "";
+
+        if (_isStatic)
+            string += "S ";
+
+        string += Visibility::getInUML(_status) + ' ' + (_isConst ? toUpper(_name) : _name) + ':' + _type;
+
+        if (!_defaultValue.empty())
+            string += " = " + _defaultValue;
+
+        return string;
     }
 
 }

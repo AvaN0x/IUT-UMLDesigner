@@ -56,6 +56,8 @@ namespace iut_cpp
          */
         Argument(std::string const &name, std::string const &type, bool isConst, std::string defaultValue);
 
+        std::string toString();
+
         virtual const Wrapper &toJava() const override
         {
             return *_javaWrapper;

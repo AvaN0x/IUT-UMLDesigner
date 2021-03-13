@@ -38,3 +38,9 @@ std::string remSpaces(std::string s)
 
     return s;
 }
+
+std::string toUpper(std::string s)
+{
+    std::transform(s.begin(), s.end(), s.begin(), ::toupper);
+    return s;
+}

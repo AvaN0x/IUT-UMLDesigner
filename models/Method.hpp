@@ -54,6 +54,8 @@ namespace iut_cpp
 
         virtual ~Method();
 
+        std::string toString();
+
         virtual const Wrapper &toJava() const override
         {
             return *_javaWrapper;

@@ -14,4 +14,6 @@ bool createAndWriteFile(std::string const &fullPath, iut_cpp::Wrapper const &wra
 
 std::string remSpaces(std::string s);
 
+std::string toUpper(std::string s);
+
 #endif

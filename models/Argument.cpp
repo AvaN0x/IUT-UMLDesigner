@@ -2,6 +2,7 @@
 #include <ostream>
 #include <iostream>
 
+#include "Utils.hpp"
 #include "Argument.hpp"
 #include "types.h"
 
@@ -76,6 +77,15 @@ namespace iut_cpp
             stream << "final ";
 
         stream << Types::getInJava(_argument->_type) << ' ' << _argument->_name;
+    }
+
+    std::string Argument::toString()
+    {
+        std::string string = "";
+
+        string += _type + ' ' + (_isConst ? toUpper(_name) : _name);
+
+        return string;
     }
 
 }

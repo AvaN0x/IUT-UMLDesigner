@@ -58,6 +58,8 @@ namespace iut_cpp
          */
         Attribute(std::string const &name, std::string const &type, std::string status, bool isStatic, bool isConst, std::string defaultValue);
 
+        std::string toString();
+
         virtual const Wrapper &toJava() const override
         {
             return *_javaWrapper;
