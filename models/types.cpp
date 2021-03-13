@@ -8,6 +8,7 @@ Types::Types()
                                 << "float"
                                 << "double"
                                 << "boolean"
+                                << "string"
                                 << "long"
                                 << "short"
                                 << "character");
@@ -31,6 +32,8 @@ std::string Types::getInJava(std::string const &type)
 {
     if (type == "integer")
         return "int";
+    else if (type == "string")
+        return "String";
     else if (type == "character")
         return "char";
 
