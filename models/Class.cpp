@@ -10,6 +10,7 @@ namespace iut_cpp
 {
     Class::Class(Class const &c) : _javaWrapper(nullptr),
                                    _name(c._name),
+                                   _templates(c._templates),
                                    _attributes(c._attributes),
                                    _isPublic(c._isPublic),
                                    _isAbstract(c._isAbstract),
@@ -19,12 +20,13 @@ namespace iut_cpp
         _javaWrapper = new ClassJavaWrapper(this);
     }
 
-    Class::Class(std::string const &name, iut_cpp::List<iut_cpp::Attribute> const &attributes, bool isPublic, bool isAbstract, iut_cpp::List<iut_cpp::Method> methods) : _javaWrapper(nullptr),
-                                                                                                                                                                         _name(name),
-                                                                                                                                                                         _attributes(attributes),
-                                                                                                                                                                         _isPublic(isPublic),
-                                                                                                                                                                         _isAbstract(isAbstract),
-                                                                                                                                                                         _methods(methods)
+    Class::Class(std::string const &name, std::string const &templates, iut_cpp::List<iut_cpp::Attribute> const &attributes, bool isPublic, bool isAbstract, iut_cpp::List<iut_cpp::Method> methods) : _javaWrapper(nullptr),
+                                                                                                                                                                                                       _name(name),
+                                                                                                                                                                                                       _templates(templates),
+                                                                                                                                                                                                       _attributes(attributes),
+                                                                                                                                                                                                       _isPublic(isPublic),
+                                                                                                                                                                                                       _isAbstract(isAbstract),
+                                                                                                                                                                                                       _methods(methods)
     {
         //constructor
         _javaWrapper = new ClassJavaWrapper(this);
@@ -40,6 +42,7 @@ namespace iut_cpp
         delete _javaWrapper;
         _javaWrapper = new ClassJavaWrapper(this);
         _name = c._name;
+        _templates = c._templates;
         _attributes = c._attributes;
         _isPublic = c._isPublic;
         _isAbstract = c._isAbstract;
@@ -63,7 +66,12 @@ namespace iut_cpp
                << ' ';
         if (_class->_isAbstract)
             stream << "abstract ";
-        stream << "class " << _class->_name << " {" << std::endl;
+        stream << "class " << _class->_name;
+
+        if (!_class->_templates.empty())
+            stream << '<' << _class->_templates << '>';
+
+        stream << " {" << std::endl;
 
         for (auto it = _class->_attributes.begin(); it != _class->_attributes.end(); ++it)
             stream << it->toJava();

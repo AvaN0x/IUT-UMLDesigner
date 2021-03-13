@@ -39,6 +39,7 @@ namespace iut_cpp
 
     public:
         std::string _name;
+        std::string _templates;
         iut_cpp::List<iut_cpp::Attribute> _attributes;
         bool _isPublic;
         bool _isAbstract;
@@ -49,7 +50,7 @@ namespace iut_cpp
          */
         Class(Class const &c);
 
-        Class(std::string const &name, iut_cpp::List<iut_cpp::Attribute> const &attributes, bool isPublic, bool isAbstract, iut_cpp::List<iut_cpp::Method> methods);
+        Class(std::string const &name, std::string const &templates, iut_cpp::List<iut_cpp::Attribute> const &attributes, bool isPublic, bool isAbstract, iut_cpp::List<iut_cpp::Method> methods);
 
         virtual ~Class();
 

@@ -95,7 +95,9 @@ void MainWindow::handleNewClass(QString name, std::vector<iut_cpp::Attribute> at
     {
         methods.push_last(arg);
     }
-    iut_cpp::Class cla(name.toUtf8().constData(), attributes, isPublic, isAbstr, methods);
+
+    // TODO template
+    iut_cpp::Class cla(name.toUtf8().constData(), "", attributes, isPublic, isAbstr, methods);
     if (editPos == -1)
     {
     }

@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
     methods.push_last(iut_cpp::Method("somme", "integer", "public", false, arguments1));
     methods.push_last(iut_cpp::Method("hypothenuse", "double", "private", true, arguments2));
 
-    iut_cpp::Class c1("SomeMaths", attributes, true, true, methods);
+    iut_cpp::Class c1("SomeMaths", "T,U", attributes, true, true, methods);
 
     createClass("", c1, "java");
 
