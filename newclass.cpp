@@ -12,7 +12,7 @@ NewClass::NewClass(QWidget *parent) : QDialog(parent),
 {
     ui->setupUi(this);
 
-    ui->cbx_template->addItems(QStringList("") + *Types::getInstance()->getTypes() + QStringList("Other :"));
+    ui->cbx_template->addItems(QStringList("") + *Types::getInstance()->getTypes());
 
     connect(ui->btn_newAttr, SIGNAL(clicked()),
             this, SLOT(handleNewAttrClick()));
