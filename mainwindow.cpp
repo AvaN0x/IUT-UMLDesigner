@@ -4,6 +4,7 @@
 #include "newclass.h"
 #include "exportclass.h"
 
+#include "models/Utils.hpp"
 #include "models/Class.hpp"
 #include "models/Attribute.hpp"
 #include "models/List.hpp"
@@ -85,20 +86,24 @@ void MainWindow::saveFile()
 void MainWindow::handleNewClass(QString name, std::vector<iut_cpp::Attribute> attrs, bool isPublic, bool isAbstr, std::vector<iut_cpp::Method> meths, int editPos)
 {
     iut_cpp::List<iut_cpp::Attribute> attributes;
-    foreach (iut_cpp::Attribute arg, attrs) {
+    foreach (iut_cpp::Attribute arg, attrs)
+    {
         attributes.push_last(arg);
     }
     iut_cpp::List<iut_cpp::Method> methods;
-    foreach (iut_cpp::Method arg, meths) {
+    foreach (iut_cpp::Method arg, meths)
+    {
         methods.push_last(arg);
     }
     iut_cpp::Class cla(name.toUtf8().constData(), attributes, isPublic, isAbstr, methods);
-    if (editPos == -1) {
-
-    } else {
-
+    if (editPos == -1)
+    {
+    }
+    else
+    {
     }
 
     //TODO: REMOVE
-    std::cout << cla.toJava() << std::endl;
+    // std::cout << cla.toJava() << std::endl;
+    createClass("", cla, "java");
 }
