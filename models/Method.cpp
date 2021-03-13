@@ -31,12 +31,12 @@ namespace iut_cpp
         _javaWrapper = new MethodJavaWrapper(this);
     }
 
-    Method::Method(std::string const &name, std::string returnType, std::string status, bool isStatic, iut_cpp::List<iut_cpp::Argument> const &arguments) : _javaWrapper(nullptr),
-                                                                                                                                                            _name(name),
-                                                                                                                                                            _returnType(returnType),
-                                                                                                                                                            _status(status),
-                                                                                                                                                            _isStatic(isStatic),
-                                                                                                                                                            _arguments(arguments)
+    Method::Method(std::string const &name, std::string const &returnType, std::string const &status, bool isStatic, iut_cpp::List<iut_cpp::Argument> const &arguments) : _javaWrapper(nullptr),
+                                                                                                                                                                          _name(name),
+                                                                                                                                                                          _returnType(returnType),
+                                                                                                                                                                          _status(status),
+                                                                                                                                                                          _isStatic(isStatic),
+                                                                                                                                                                          _arguments(arguments)
     {
         //constructor
         _javaWrapper = new MethodJavaWrapper(this);

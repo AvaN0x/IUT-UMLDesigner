@@ -54,7 +54,7 @@ namespace iut_cpp
         /**
          * @brief  Constructor
          */
-        Argument(std::string const &name, std::string const &type, bool isConst, std::string defaultValue);
+        Argument(std::string const &name, std::string const &type, bool isConst, std::string const &defaultValue);
 
         std::string toString();
 

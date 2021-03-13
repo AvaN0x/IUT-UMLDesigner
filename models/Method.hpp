@@ -50,7 +50,7 @@ namespace iut_cpp
 
         Method(Method const &m);
 
-        Method(std::string const &name, std::string returnType, std::string status, bool isStatic, iut_cpp::List<iut_cpp::Argument> const &arguments);
+        Method(std::string const &name, std::string const &returnType, std::string const &status, bool isStatic, iut_cpp::List<iut_cpp::Argument> const &arguments);
 
         virtual ~Method();
 

@@ -28,11 +28,11 @@ namespace iut_cpp
         _javaWrapper = new ArgumentJavaWrapper(this);
     }
 
-    Argument::Argument(std::string const &name, std::string const &type, bool isConst, std::string defaultValue) : _javaWrapper(nullptr),
-                                                                                                                   _name(name),
-                                                                                                                   _type(type),
-                                                                                                                   _isConst(isConst),
-                                                                                                                   _defaultValue(defaultValue)
+    Argument::Argument(std::string const &name, std::string const &type, bool isConst, std::string const &defaultValue) : _javaWrapper(nullptr),
+                                                                                                                          _name(name),
+                                                                                                                          _type(type),
+                                                                                                                          _isConst(isConst),
+                                                                                                                          _defaultValue(defaultValue)
     {
         //constructor
         _javaWrapper = new ArgumentJavaWrapper(this);

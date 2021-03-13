@@ -56,7 +56,7 @@ namespace iut_cpp
         /**
          * @brief  Constructor
          */
-        Attribute(std::string const &name, std::string const &type, std::string status, bool isStatic, bool isConst, std::string defaultValue);
+        Attribute(std::string const &name, std::string const &type, std::string status, bool isStatic, bool isConst, std::string const &defaultValue);
 
         std::string toString();
 
