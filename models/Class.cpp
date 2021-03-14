@@ -51,11 +51,6 @@ namespace iut_cpp
         return *this;
     }
 
-    void Class::addAttribute(iut_cpp::Attribute attribute)
-    {
-        _attributes.push_last(attribute);
-    }
-
     ClassJavaWrapper::ClassJavaWrapper(Class *c) : _class(c)
     {
     }
