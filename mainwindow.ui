@@ -35,27 +35,6 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btn_open">
-       <property name="text">
-        <string>Open...</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btn_save">
-       <property name="text">
-        <string>Save</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btn_saveto">
-       <property name="text">
-        <string>Save as...</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="QPushButton" name="btn_export">
        <property name="text">
         <string>Export...</string>

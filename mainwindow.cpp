@@ -39,48 +39,10 @@ void MainWindow::handleNewClick()
     dialog->exec();
 }
 
-void MainWindow::handleOpenClick()
-{
-    QFileDialog *dialog = new QFileDialog(this);
-    dialog->setFileMode(QFileDialog::ExistingFile);
-    QStringList directoryName;
-    if (dialog->exec())
-        directoryName = dialog->selectedFiles();
-    //TODO Unserialize
-}
-
-void MainWindow::handleSaveClick()
-{
-    if (savePath.length() > 0)
-    {
-        saveFile();
-    }
-    else
-    {
-        this->handleSaveToClick();
-    }
-}
-
-void MainWindow::handleSaveToClick()
-{
-    QFileDialog *dialog = new QFileDialog(this);
-    dialog->setFileMode(QFileDialog::Directory);
-    QStringList directoryName;
-    if (dialog->exec())
-        directoryName = dialog->selectedFiles();
-    //TODO Get the real path
-    saveFile();
-}
-
 void MainWindow::handleExportClick()
 {
     ExportClass *dialog = new ExportClass(this);
     dialog->exec();
-}
-
-void MainWindow::saveFile()
-{
-    //TODO Serialize
 }
 
 void MainWindow::handleNewClass(QString name, QString templ, std::vector<iut_cpp::Attribute> attrs, bool isPublic, bool isAbstr, std::vector<iut_cpp::Method> meths, int editPos)

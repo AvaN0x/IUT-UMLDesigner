@@ -27,14 +27,10 @@ public slots:
     void handleNewClass(QString, QString, std::vector<iut_cpp::Attribute>, bool, bool, std::vector<iut_cpp::Method>, int);
 private slots:
     void handleNewClick();
-    void handleOpenClick();
-    void handleSaveClick();
-    void handleSaveToClick();
     void handleExportClick();
 private:
     void saveFile();
     Ui::MainWindow *ui;
-    QString savePath;
     std::vector<iut_cpp::Class> *classes;
 };
 #endif // MAINWINDOW_H
