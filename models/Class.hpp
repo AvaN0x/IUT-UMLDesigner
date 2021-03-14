@@ -56,6 +56,8 @@ namespace iut_cpp
 
         void addAttribute(iut_cpp::Attribute attribute);
 
+        std::string toString();
+
         virtual const Wrapper &toJava() const override
         {
             return *_javaWrapper;

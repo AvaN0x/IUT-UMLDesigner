@@ -83,4 +83,19 @@ namespace iut_cpp
 
         stream << '}' << std::endl;
     }
+
+    std::string Class::toString()
+    {
+        std::string string = "";
+
+        if (_isAbstract)
+            string += "<<abstract>> ";
+
+        string += _name;
+
+        if (!_templates.empty())
+            string += '<' + _templates + '>';
+
+        return string;
+    }
 }
