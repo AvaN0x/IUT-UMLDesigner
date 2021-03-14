@@ -17,10 +17,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     connect(ui->btn_newClass, SIGNAL(clicked()),
             this, SLOT(handleNewClick()));
-    connect(ui->btn_save, SIGNAL(clicked()),
-            this, SLOT(handleSaveClick()));
-    connect(ui->btn_saveto, SIGNAL(clicked()),
-            this, SLOT(handleSaveToClick()));
     connect(ui->btn_export, SIGNAL(clicked()),
             this, SLOT(handleExportClick()));
 
