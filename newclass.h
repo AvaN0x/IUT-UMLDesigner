@@ -4,6 +4,7 @@
 #include <vector>
 
 #include <QDialog>
+#include <QListWidgetItem>
 
 #include "models/Class.hpp"
 #include "models/Attribute.hpp"
@@ -20,12 +21,12 @@ class NewClass : public QDialog
 
 public:
     explicit NewClass(QWidget *parent = nullptr);
-    explicit NewClass(iut_cpp::Class clas, int pos, QWidget *parent = nullptr);
+    explicit NewClass(iut_cpp::Class *clas, int pos, QWidget *parent = nullptr);
     ~NewClass();
 signals:
-    void emitNewClass(QString, std::vector<iut_cpp::Attribute>, bool, bool, std::vector<iut_cpp::Method>, int);
+    void emitNewClass(QString, QString, std::vector<iut_cpp::Attribute>, bool, bool, std::vector<iut_cpp::Method>, int);
 public slots:
-    void handleNewVar(QString, QString, QString, bool, QString, int);
+    void handleNewVar(QString, QString, QString, bool, bool, QString, int);
     void handleNewMeth(QString, QString, QString, bool, std::vector<iut_cpp::Argument>, int);
 private slots:
     void handleNewAttrClick();
@@ -35,7 +36,8 @@ private slots:
     void handleEditMethClick();
     void handleDeleteMethClick();
     void handleAccept();
-
+    void handleAttrClick(QListWidgetItem*);
+    void handleMethClick(QListWidgetItem*);
 private:
     Ui::NewClass *ui;
     std::vector<iut_cpp::Attribute> *attributes;

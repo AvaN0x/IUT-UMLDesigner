@@ -21,7 +21,7 @@ public:
     explicit NewVar(iut_cpp::Argument *attr, int pos, QWidget *parent = nullptr);
     ~NewVar();
 signals:
-    void emitNewVar(QString, QString, QString, bool, QString, int);
+    void emitNewVar(QString, QString, QString, bool, bool, QString, int);
 private slots:
     void handleAccept();
 private:

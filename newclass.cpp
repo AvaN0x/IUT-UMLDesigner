@@ -1,6 +1,8 @@
 #include "newclass.h"
 #include "ui_newclass.h"
 
+#include <QMessageBox>
+
 #include "newvar.h"
 #include "newmethod.h"
 
@@ -12,34 +14,52 @@ NewClass::NewClass(QWidget *parent) : QDialog(parent),
 {
     ui->setupUi(this);
 
-    ui->cbx_template->addItems(QStringList("") + *Types::getInstance()->getTypes());
-
+    connect(ui->lv_attr, SIGNAL(itemClicked(QListWidgetItem*)),
+            this, SLOT(handleAttrClick(QListWidgetItem*)));
     connect(ui->btn_newAttr, SIGNAL(clicked()),
             this, SLOT(handleNewAttrClick()));
     connect(ui->btn_editAttr, SIGNAL(clicked()),
             this, SLOT(handleEditAttrClick()));
+    ui->btn_editAttr->setDisabled(true);
     connect(ui->btn_deleteAttr, SIGNAL(clicked()),
             this, SLOT(handleDeleteAttrClick()));
 
+    connect(ui->lv_meth, SIGNAL(itemClicked(QListWidgetItem*)),
+            this, SLOT(handleMethClick(QListWidgetItem*)));
     connect(ui->btn_newMeth, SIGNAL(clicked()),
             this, SLOT(handleNewMethClick()));
     connect(ui->btn_editMeth, SIGNAL(clicked()),
             this, SLOT(handleEditMethClick()));
+    ui->btn_editMeth->setDisabled(true);
     connect(ui->btn_deleteMeth, SIGNAL(clicked()),
             this, SLOT(handleDeleteMethClick()));
 
-    connect(ui->btnbx, SIGNAL(accepted()),
-            this, SLOT(handleAccept()));
-    connect(this, SIGNAL(emitNewClass(QString, std::vector<iut_cpp::Attribute>, bool, bool, std::vector<iut_cpp::Method>, int)),
-            parent, SLOT(handleNewClass(QString, std::vector<iut_cpp::Attribute>, bool, bool, std::vector<iut_cpp::Method>, int)));
+    connect(ui->btnbx, SIGNAL(accepted()), this, SLOT(handleAccept()));
+    connect(ui->btnbx, SIGNAL(rejected()), this, SLOT(reject()));
+    connect(this, SIGNAL(emitNewClass(QString, QString, std::vector<iut_cpp::Attribute>, bool, bool, std::vector<iut_cpp::Method>, int)),
+            parent, SLOT(handleNewClass(QString, QString, std::vector<iut_cpp::Attribute>, bool, bool, std::vector<iut_cpp::Method>, int)));
 
     attributes = new std::vector<iut_cpp::Attribute>();
     methods = new std::vector<iut_cpp::Method>();
 }
 
-NewClass::NewClass(iut_cpp::Class clas, int pos, QWidget *parent) : NewClass(parent)
+NewClass::NewClass(iut_cpp::Class *clas, int pos, QWidget *parent) : NewClass(parent)
 {
-    //TODO
+    ui->le_name->setText(QString::fromStdString(clas->_name));
+    ui->cb_public->setChecked(clas->_isPublic);
+    ui->cb_abstract->setChecked(clas->_isAbstract);
+    ui->le_template->setText(QString::fromStdString(clas->_templates));
+    for (auto ptr = clas->_attributes.begin(); ptr != clas->_attributes.end(); ++ptr)
+    {
+        attributes->push_back(*ptr);
+        ui->lv_attr->addItem(QString::fromStdString(ptr->toString()));
+    }
+    for (auto ptr = clas->_methods.begin(); ptr != clas->_methods.end(); ++ptr)
+    {
+        methods->push_back(*ptr);
+        ui->lv_meth->addItem(QString::fromStdString(ptr->toString()));
+    }
+    editPos = pos;
 }
 
 NewClass::~NewClass()
@@ -66,17 +86,17 @@ void NewClass::handleDeleteAttrClick()
     int currRow = ui->lv_attr->currentRow();
     attributes->erase(attributes->begin() + currRow);
     ui->lv_attr->takeItem(currRow);
-    ui->lv_attr->setCurrentRow(currRow);
+    ui->lv_attr->setCurrentRow(-1);
+    ui->btn_editAttr->setDisabled(true);
 }
 
-void NewClass::handleNewVar(QString name, QString type, QString visibilty, bool isStatic, QString defaultValue, int editPos)
+void NewClass::handleNewVar(QString name, QString type, QString visibilty, bool isStatic, bool isConst, QString defaultValue, int editPos)
 {
-    //TODO const
-    iut_cpp::Attribute attr(name.toUtf8().constData(), type.toUtf8().constData(), visibilty.toUtf8().constData(), isStatic, false, defaultValue.toUtf8().constData());
+    iut_cpp::Attribute attr(name.toUtf8().constData(), type.toUtf8().constData(), visibilty.toUtf8().constData(), isStatic, isConst, defaultValue.toUtf8().constData());
     if (editPos == -1)
     {
         attributes->push_back(attr);
-        ui->lv_attr->addItem(QString::fromUtf8(attr.toString()));
+        ui->lv_attr->addItem(QString::fromStdString(attr.toString()));
     }
     else
     {
@@ -102,7 +122,8 @@ void NewClass::handleDeleteMethClick()
     int currRow = ui->lv_meth->currentRow();
     methods->erase(methods->begin() + currRow);
     ui->lv_meth->takeItem(currRow);
-    ui->lv_meth->setCurrentRow(currRow);
+    ui->lv_meth->setCurrentRow(-1);
+    ui->btn_editMeth->setDisabled(true);
 }
 
 void NewClass::handleNewMeth(QString name, QString ret, QString visibilty, bool isStatic, std::vector<iut_cpp::Argument> arguments, int editPos)
@@ -116,7 +137,7 @@ void NewClass::handleNewMeth(QString name, QString ret, QString visibilty, bool 
     if (editPos == -1)
     {
         methods->push_back(meth);
-        ui->lv_meth->addItem(QString::fromUtf8(meth.toString()));
+        ui->lv_meth->addItem(QString::fromStdString(meth.toString()));
     }
     else
     {
@@ -128,14 +149,28 @@ void NewClass::handleNewMeth(QString name, QString ret, QString visibilty, bool 
 void NewClass::handleAccept()
 {
     std::string name = remSpaces(ui->le_name->text().toUtf8().constData());
+    std::string templ = remSpaces(ui->le_template->text().toUtf8().constData());
 
     if (!empty(name))
     {
-        emit emitNewClass(QString::fromUtf8(name), *attributes, ui->cb_public->isChecked(), ui->cb_abstract->isChecked(), *methods, editPos);
-        close(); // Why I need to close the window here and not at other handle ? Dunno
+        emit emitNewClass(QString::fromStdString(name), QString::fromStdString(templ), *attributes, ui->cb_public->isChecked(), ui->cb_abstract->isChecked(), *methods, editPos);
+        close();
     }
     else
     {
-        //TODO alert
+        QMessageBox msgBox;
+        msgBox.setText("Name can't be empty !");
+        msgBox.setStandardButtons(QMessageBox::Ok);
+        msgBox.setDefaultButton(QMessageBox::Ok);
+        msgBox.setIcon(QMessageBox::Critical);
+        msgBox.exec();
     }
+}
+
+void NewClass::handleAttrClick(QListWidgetItem* item){
+    ui->btn_editAttr->setDisabled(false);
+}
+
+void NewClass::handleMethClick(QListWidgetItem* item){
+    ui->btn_editMeth->setDisabled(false);
 }

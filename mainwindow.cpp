@@ -23,10 +23,13 @@ MainWindow::MainWindow(QWidget *parent)
             this, SLOT(handleSaveToClick()));
     connect(ui->btn_export, SIGNAL(clicked()),
             this, SLOT(handleExportClick()));
+
+    classes = new std::vector<iut_cpp::Class>();
 }
 
 MainWindow::~MainWindow()
 {
+    delete classes;
     delete ui;
 }
 
@@ -80,10 +83,7 @@ void MainWindow::saveFile()
     //TODO Serialize
 }
 
-// TODO: REMOVE
-#include <iostream>
-
-void MainWindow::handleNewClass(QString name, std::vector<iut_cpp::Attribute> attrs, bool isPublic, bool isAbstr, std::vector<iut_cpp::Method> meths, int editPos)
+void MainWindow::handleNewClass(QString name, QString templ, std::vector<iut_cpp::Attribute> attrs, bool isPublic, bool isAbstr, std::vector<iut_cpp::Method> meths, int editPos)
 {
     iut_cpp::List<iut_cpp::Attribute> attributes;
     foreach (iut_cpp::Attribute arg, attrs)
@@ -96,16 +96,17 @@ void MainWindow::handleNewClass(QString name, std::vector<iut_cpp::Attribute> at
         methods.push_last(arg);
     }
 
-    // TODO template
-    iut_cpp::Class cla(name.toUtf8().constData(), "", attributes, isPublic, isAbstr, methods);
+    iut_cpp::Class cla(name.toUtf8().constData(), templ.toUtf8().constData(), attributes, isPublic, isAbstr, methods);
     if (editPos == -1)
     {
+        classes->push_back(cla);
+        // TODO Add class to UI
     }
     else
     {
+        classes->at(editPos) = cla;
+        // TODO Edit class to UI
     }
 
-    //TODO: REMOVE
-    // std::cout << cla.toJava() << std::endl;
     createClass("", cla, "java");
 }

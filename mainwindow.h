@@ -7,6 +7,7 @@
 
 #include "models/Attribute.hpp"
 #include "models/Method.hpp"
+#include "models/Class.hpp"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -23,7 +24,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 public slots:
-    void handleNewClass(QString, std::vector<iut_cpp::Attribute>, bool, bool, std::vector<iut_cpp::Method>, int);
+    void handleNewClass(QString, QString, std::vector<iut_cpp::Attribute>, bool, bool, std::vector<iut_cpp::Method>, int);
 private slots:
     void handleNewClick();
     void handleOpenClick();
@@ -34,5 +35,6 @@ private:
     void saveFile();
     Ui::MainWindow *ui;
     QString savePath;
+    std::vector<iut_cpp::Class> *classes;
 };
 #endif // MAINWINDOW_H

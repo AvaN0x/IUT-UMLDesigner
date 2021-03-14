@@ -5,6 +5,7 @@
 
 #include <QDialog>
 #include <QStringList>
+#include <QListWidgetItem>
 
 #include "models/List.hpp"
 #include "models/Argument.hpp"
@@ -26,12 +27,13 @@ public:
 signals:
     void emitNewMeth(QString, QString, QString, bool, std::vector<iut_cpp::Argument>, int);
 public slots:
-    void handleNewVar(QString, QString, QString, bool, QString, int);
+    void handleNewVar(QString, QString, QString, bool, bool, QString, int);
 private slots:
     void handleNewParam();
     void handleEditParam();
     void handleRemoveParam();
     void handleAccept();
+    void handleParamClick(QListWidgetItem*);
 private:
     Ui::NewMethod *ui;
     std::vector<iut_cpp::Argument> *parameters;

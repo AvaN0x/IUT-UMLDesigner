@@ -1,6 +1,8 @@
 #include "newvar.h"
 #include "ui_newvar.h"
 
+#include <QMessageBox>
+
 #include "models/types.h"
 #include "models/visibility.h"
 #include "models/Utils.hpp"
@@ -21,8 +23,9 @@ NewVar::NewVar(QWidget *parent, bool isArg) : QDialog(parent),
 
     connect(ui->buttonBox, SIGNAL(accepted()),
             this, SLOT(handleAccept()));
-    connect(this, SIGNAL(emitNewVar(QString, QString, QString, bool, QString, int)),
-            parent, SLOT(handleNewVar(QString, QString, QString, bool, QString, int)));
+    connect(ui->buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    connect(this, SIGNAL(emitNewVar(QString, QString, QString, bool, bool, QString, int)),
+            parent, SLOT(handleNewVar(QString, QString, QString, bool, bool, QString, int)));
 }
 
 NewVar::NewVar(iut_cpp::Attribute *attr, int pos, QWidget *parent) : NewVar(parent, false)
@@ -54,11 +57,17 @@ void NewVar::handleAccept()
     std::string value = remSpaces(ui->le_value->text().toUtf8().constData());
 
     // don't check value, because you can have an empty default value
-    if (!empty(name))
-        // TODO maybe prevent from closing ?
-        emit emitNewVar(QString::fromUtf8(name), ui->cbx_type->currentText(), ui->cbx_visibility->currentText(), ui->cb_static->isChecked(), QString::fromUtf8(value), editPos);
+    if (!empty(name)){
+        emit emitNewVar(QString::fromUtf8(name), ui->cbx_type->currentText(), ui->cbx_visibility->currentText(), ui->cb_static->isChecked(), ui->cb_const->isChecked(), QString::fromUtf8(value), editPos);
+        close();
+    }
     else
     {
-        //TODO alert
+        QMessageBox msgBox;
+        msgBox.setText("Name can't be empty !");
+        msgBox.setStandardButtons(QMessageBox::Ok);
+        msgBox.setDefaultButton(QMessageBox::Ok);
+        msgBox.setIcon(QMessageBox::Critical);
+        msgBox.exec();
     }
 }
