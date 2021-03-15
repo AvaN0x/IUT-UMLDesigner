@@ -46,6 +46,9 @@ set(PROJECT_SOURCES
         newvar.cpp
         newvar.h
         newvar.ui
+        classwidget.cpp
+        classwidget.h
+        classwidget.ui
         models/Class.cpp
         models/Class.hpp
         models/Method.cpp

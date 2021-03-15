@@ -2,6 +2,19 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="en_150">
 <context>
+    <name>ClassWidget</name>
+    <message>
+        <location filename="classwidget.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="classwidget.ui" line="26"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ExportClass</name>
     <message>
         <location filename="exportclass.ui" line="14"/>
@@ -9,29 +22,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="exportclass.ui" line="45"/>
+        <location filename="exportclass.ui" line="62"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="exportclass.ui" line="55"/>
+        <location filename="exportclass.ui" line="45"/>
         <source>Language</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="exportclass.ui" line="65"/>
-        <location filename="exportclass.ui" line="86"/>
-        <source>CheckBox</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="exportclass.ui" line="72"/>
-        <source>Generate Getters ?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="exportclass.ui" line="79"/>
-        <source>Generate Setters ?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -45,11 +42,6 @@
     <message>
         <location filename="mainwindow.ui" line="33"/>
         <source>New Class...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="40"/>
-        <source>Export...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

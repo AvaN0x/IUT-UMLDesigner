@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>801</width>
-    <height>592</height>
+    <width>272</width>
+    <height>374</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>801</width>
+      <width>271</width>
       <height>31</height>
      </rect>
     </property>
@@ -34,37 +34,18 @@
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QPushButton" name="btn_export">
-       <property name="text">
-        <string>Export...</string>
-       </property>
-      </widget>
-     </item>
     </layout>
    </widget>
-   <widget class="QScrollArea" name="scrollArea">
+   <widget class="QWidget" name="horizontalLayoutWidget_2">
     <property name="geometry">
      <rect>
       <x>0</x>
       <y>30</y>
-      <width>801</width>
-      <height>521</height>
+      <width>271</width>
+      <height>301</height>
      </rect>
     </property>
-    <property name="widgetResizable">
-     <bool>true</bool>
-    </property>
-    <widget class="QWidget" name="scrollAreaWidgetContents">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>799</width>
-       <height>519</height>
-      </rect>
-     </property>
-    </widget>
+    <layout class="QHBoxLayout" name="sw_classes"/>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -73,7 +54,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>801</width>
+     <width>272</width>
      <height>20</height>
     </rect>
    </property>

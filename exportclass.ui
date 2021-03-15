@@ -39,16 +39,6 @@
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
-    <item row="0" column="0">
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>Name</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QLineEdit" name="le_name"/>
-    </item>
     <item row="1" column="0">
      <widget class="QLabel" name="label_2">
       <property name="text">
@@ -59,31 +49,17 @@
     <item row="1" column="1">
      <widget class="QComboBox" name="cbx_lang"/>
     </item>
-    <item row="2" column="1">
-     <widget class="QCheckBox" name="cb_getter">
-      <property name="text">
-       <string>CheckBox</string>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="le_name">
+      <property name="readOnly">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="label_3">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label">
       <property name="text">
-       <string>Generate Getters ?</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="label_4">
-      <property name="text">
-       <string>Generate Setters ?</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QCheckBox" name="cb_setter">
-      <property name="text">
-       <string>CheckBox</string>
+       <string>Name</string>
       </property>
      </widget>
     </item>
