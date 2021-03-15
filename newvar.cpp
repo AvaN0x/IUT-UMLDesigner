@@ -11,6 +11,7 @@ NewVar::NewVar(QWidget *parent, bool isArg) : QDialog(parent),
                                               ui(new Ui::NewVar)
 {
     ui->setupUi(this);
+    ui->le_name->setFocus();
 
     ui->cbx_type->addItems(*Types::getInstance()->getTypes());
 

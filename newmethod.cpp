@@ -13,6 +13,7 @@ NewMethod::NewMethod(QWidget *parent) : QDialog(parent),
                                         ui(new Ui::NewMethod)
 {
     ui->setupUi(this);
+    ui->le_name->setFocus();
 
     ui->cbx_return->addItems(QStringList("void") + *Types::getInstance()->getTypes());
     ui->cbx_visibility->addItems(*Visibility::getInstance()->getVisibility());
@@ -20,6 +21,7 @@ NewMethod::NewMethod(QWidget *parent) : QDialog(parent),
     connect(ui->lv_param, SIGNAL(itemClicked(QListWidgetItem*)),
             this, SLOT(handleParamClick(QListWidgetItem*)));
     ui->btn_editParam->setDisabled(true);
+    ui->btn_deleteParam->setDisabled(true);
 
     connect(ui->btn_newParam, SIGNAL(clicked()),
             this, SLOT(handleNewParam()));
@@ -75,6 +77,7 @@ void NewMethod::handleRemoveParam()
     ui->lv_param->takeItem(currRow);
     ui->lv_param->setCurrentRow(-1);
     ui->btn_editParam->setDisabled(true);
+    ui->btn_deleteParam->setDisabled(true);
 }
 
 void NewMethod::handleNewVar(QString name, QString type, QString visibilty, bool isStatic, bool isConst, QString defaultValue, int editPos)
@@ -113,4 +116,5 @@ void NewMethod::handleAccept()
 
 void NewMethod::handleParamClick(QListWidgetItem*){
     ui->btn_editParam->setDisabled(false);
+    ui->btn_deleteParam->setDisabled(false);
 }

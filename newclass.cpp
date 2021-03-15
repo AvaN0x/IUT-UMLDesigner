@@ -13,6 +13,7 @@ NewClass::NewClass(QWidget *parent) : QDialog(parent),
                                       ui(new Ui::NewClass)
 {
     ui->setupUi(this);
+    ui->le_name->setFocus();
 
     connect(ui->lv_attr, SIGNAL(itemClicked(QListWidgetItem*)),
             this, SLOT(handleAttrClick(QListWidgetItem*)));
@@ -23,6 +24,7 @@ NewClass::NewClass(QWidget *parent) : QDialog(parent),
     ui->btn_editAttr->setDisabled(true);
     connect(ui->btn_deleteAttr, SIGNAL(clicked()),
             this, SLOT(handleDeleteAttrClick()));
+    ui->btn_deleteAttr->setDisabled(true);
 
     connect(ui->lv_meth, SIGNAL(itemClicked(QListWidgetItem*)),
             this, SLOT(handleMethClick(QListWidgetItem*)));
@@ -33,6 +35,7 @@ NewClass::NewClass(QWidget *parent) : QDialog(parent),
     ui->btn_editMeth->setDisabled(true);
     connect(ui->btn_deleteMeth, SIGNAL(clicked()),
             this, SLOT(handleDeleteMethClick()));
+    ui->btn_deleteMeth->setDisabled(true);
 
     connect(ui->btnbx, SIGNAL(accepted()), this, SLOT(handleAccept()));
     connect(ui->btnbx, SIGNAL(rejected()), this, SLOT(reject()));
@@ -88,6 +91,7 @@ void NewClass::handleDeleteAttrClick()
     ui->lv_attr->takeItem(currRow);
     ui->lv_attr->setCurrentRow(-1);
     ui->btn_editAttr->setDisabled(true);
+    ui->btn_deleteAttr->setDisabled(true);
 }
 
 void NewClass::handleNewVar(QString name, QString type, QString visibilty, bool isStatic, bool isConst, QString defaultValue, int editPos)
@@ -124,6 +128,7 @@ void NewClass::handleDeleteMethClick()
     ui->lv_meth->takeItem(currRow);
     ui->lv_meth->setCurrentRow(-1);
     ui->btn_editMeth->setDisabled(true);
+    ui->btn_deleteMeth->setDisabled(true);
 }
 
 void NewClass::handleNewMeth(QString name, QString ret, QString visibilty, bool isStatic, std::vector<iut_cpp::Argument> arguments, int editPos)
@@ -169,8 +174,10 @@ void NewClass::handleAccept()
 
 void NewClass::handleAttrClick(QListWidgetItem* item){
     ui->btn_editAttr->setDisabled(false);
+    ui->btn_deleteAttr->setDisabled(false);
 }
 
 void NewClass::handleMethClick(QListWidgetItem* item){
     ui->btn_editMeth->setDisabled(false);
+    ui->btn_deleteMeth->setDisabled(false);
 }

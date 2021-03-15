@@ -22,12 +22,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="exportclass.ui" line="62"/>
+        <location filename="exportclass.ui" line="39"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="exportclass.ui" line="45"/>
+        <location filename="exportclass.ui" line="22"/>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
@@ -40,7 +40,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="33"/>
+        <location filename="mainwindow.ui" line="24"/>
         <source>New Class...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -53,50 +53,50 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newclass.ui" line="45"/>
+        <location filename="newclass.ui" line="22"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newclass.ui" line="64"/>
+        <location filename="newclass.ui" line="41"/>
         <source>Is Public ?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newclass.ui" line="74"/>
+        <location filename="newclass.ui" line="51"/>
         <source>Is Abstract ?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newclass.ui" line="83"/>
+        <location filename="newclass.ui" line="60"/>
         <source>Attributes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newclass.ui" line="97"/>
-        <location filename="newclass.ui" line="142"/>
+        <location filename="newclass.ui" line="74"/>
+        <location filename="newclass.ui" line="119"/>
         <source>New...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newclass.ui" line="104"/>
-        <location filename="newclass.ui" line="149"/>
+        <location filename="newclass.ui" line="81"/>
+        <location filename="newclass.ui" line="126"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newclass.ui" line="117"/>
-        <location filename="newclass.ui" line="156"/>
+        <location filename="newclass.ui" line="94"/>
+        <location filename="newclass.ui" line="133"/>
         <source>Edit...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newclass.ui" line="128"/>
+        <location filename="newclass.ui" line="105"/>
         <source>Methods</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newclass.ui" line="167"/>
+        <location filename="newclass.ui" line="144"/>
         <source>Template</source>
         <translation type="unfinished"></translation>
     </message>
@@ -109,47 +109,47 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newmethod.ui" line="45"/>
+        <location filename="newmethod.ui" line="22"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newmethod.ui" line="52"/>
+        <location filename="newmethod.ui" line="29"/>
         <source>Visibility</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newmethod.ui" line="59"/>
+        <location filename="newmethod.ui" line="36"/>
         <source>Return</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newmethod.ui" line="66"/>
+        <location filename="newmethod.ui" line="43"/>
         <source>Parameters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newmethod.ui" line="90"/>
+        <location filename="newmethod.ui" line="67"/>
         <source>New...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newmethod.ui" line="97"/>
+        <location filename="newmethod.ui" line="74"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newmethod.ui" line="104"/>
+        <location filename="newmethod.ui" line="81"/>
         <source>Edit...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newmethod.ui" line="120"/>
+        <location filename="newmethod.ui" line="97"/>
         <source>Is Const ?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newmethod.ui" line="127"/>
+        <location filename="newmethod.ui" line="104"/>
         <source>Is Static ?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -162,33 +162,33 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newvar.ui" line="45"/>
+        <location filename="newvar.ui" line="22"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newvar.ui" line="64"/>
+        <location filename="newvar.ui" line="41"/>
         <source>Is Static ?</source>
         <oldsource>Is Public ?</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newvar.ui" line="57"/>
+        <location filename="newvar.ui" line="34"/>
         <source>Is Const ?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newvar.ui" line="83"/>
+        <location filename="newvar.ui" line="60"/>
         <source>Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newvar.ui" line="97"/>
+        <location filename="newvar.ui" line="74"/>
         <source>Default Value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="newvar.ui" line="73"/>
+        <location filename="newvar.ui" line="50"/>
         <source>Visibility</source>
         <translation type="unfinished"></translation>
     </message>
