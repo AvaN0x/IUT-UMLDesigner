@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
+    /*
     iut_cpp::List<iut_cpp::Attribute> attributes;
     attributes.push_last(iut_cpp::Attribute("x", "integer", "public", false, false, "1"));
     attributes.push_last(iut_cpp::Attribute("y", "integer", "public", false, false, "2"));
@@ -41,7 +42,8 @@ int main(int argc, char *argv[])
 
     iut_cpp::Class c1("SomeMaths", "T,U", attributes, true, true, methods);
 
-    createClass("", c1, "java");
+    createClass(c1._name, c1, "java");
+    */
 
     return a.exec();
 }

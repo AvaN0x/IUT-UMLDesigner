@@ -25,7 +25,7 @@ bool createAndWriteFile(std::string const &fullPath, iut_cpp::Wrapper const &wra
 bool createClass(std::string const &path, iut_cpp::Class const &c, std::string const &language)
 {
     if (language == "java")
-        return createAndWriteFile(path + c._name + ".java", c.toJava());
+        return createAndWriteFile(path + ".java", c.toJava());
 
     std::cerr << "Error: Language not found : " << language << std::endl;
     return false;

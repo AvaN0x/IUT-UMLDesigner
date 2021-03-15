@@ -1,6 +1,8 @@
 #include "exportclass.h"
 #include "ui_exportclass.h"
 
+#include <QFileDialog>
+
 #include "models/Utils.hpp"
 
 ExportClass::ExportClass(iut_cpp::Class *clas, QWidget *parent) : QDialog(parent),
@@ -22,6 +24,11 @@ ExportClass::~ExportClass()
 }
 
 void ExportClass::handleAccept() {
-    //TODO path
-    createClass("", *cla, ui->cbx_lang->currentText().toUtf8().constData());
+    QFileDialog *dialog = new QFileDialog(this);
+    dialog->setFileMode(QFileDialog::Directory);
+    QStringList directoryName;
+    if (dialog->exec())
+        directoryName = dialog->selectedFiles();
+
+    createClass(QDir(directoryName[0]).filePath(QString::fromStdString(cla->_name)).toUtf8().constData(), *cla, ui->cbx_lang->currentText().toUtf8().constData());
 }
