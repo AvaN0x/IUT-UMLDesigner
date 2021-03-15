@@ -105,7 +105,7 @@ void NewClass::handleNewVar(QString name, QString type, QString visibilty, bool 
     else
     {
         attributes->at(editPos) = attr;
-        ui->lv_attr->item(editPos)->setText(name);
+        ui->lv_attr->item(editPos)->setText(QString::fromStdString(attr.toString()));
     }
 }
 
@@ -147,7 +147,7 @@ void NewClass::handleNewMeth(QString name, QString ret, QString visibilty, bool 
     else
     {
         methods->at(editPos) = meth;
-        ui->lv_meth->item(editPos)->setText(name);
+        ui->lv_meth->item(editPos)->setText(QString::fromStdString(meth.toString()));
     }
 }
 

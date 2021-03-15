@@ -91,7 +91,7 @@ void NewMethod::handleNewVar(QString name, QString type, QString visibilty, bool
     else
     {
         parameters->at(editPos) = arg;
-        ui->lv_param->item(editPos)->setText(name);
+        ui->lv_param->item(editPos)->setText(QString::fromUtf8(arg.toString()));
     }
 }
 
